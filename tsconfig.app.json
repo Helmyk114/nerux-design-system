@@ -5,22 +5,24 @@
     "useDefineForClassFields": true,
     "lib": ["ES2022", "DOM", "DOM.Iterable"],
     "module": "ESNext",
-
-    "declaration": true,
-    "declarationMap": true,
-    "emitDeclarationOnly": false,
-
+    "types": ["vite/client"],
+    "skipLibCheck": true,
+    
     "outDir": "dist",
     "rootDir": "src",
 
-    "skipLibCheck": true,
-
     /* Bundler mode */
     "moduleResolution": "bundler",
-    "allowImportingTsExtensions": true,
+    "allowImportingTsExtensions": false,
     "verbatimModuleSyntax": true,
     "moduleDetection": "force",
-    "noEmit": true,
+
+    "noEmit": false,
+    "declaration": true,
+    "declarationDir": "./dist",
+    "declarationMap": true,
+    "emitDeclarationOnly": false,
+
     "jsx": "react-jsx",
 
     /* Linting */

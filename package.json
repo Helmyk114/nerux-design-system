@@ -1,19 +1,22 @@
 {
   "name": "nerux-design-system",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Nerux Design System",
   "main": "dist/nerux-ds.js",
   "module": "dist/nerux-ds.js",
   "types": "dist/index.d.ts",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "private": false,
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "build": "vite build",
+    "build:watch": "vite build --watch",
     "lint": "eslint .",
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build && echo 'User-agent: *\nDisallow: /' > storybook-static/robots.txt",
+    "build-storybook": "storybook build && echo 'User-agent: *\\nDisallow: /' > storybook-static/robots.txt",
     "deploy-storybook": "pnpm build-storybook && gh-pages -d storybook-static"
   },
   "peerDependencies": {
@@ -53,6 +56,7 @@
     "typescript": "~5.9.3",
     "typescript-eslint": "^8.46.4",
     "vite": "^7.2.4",
+    "vite-plugin-dts": "^4.5.4",
     "vitest": "^4.0.16"
   }
 }
