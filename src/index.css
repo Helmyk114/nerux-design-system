@@ -1,0 +1,14 @@
+@import "tailwindcss";
+@plugin './hero.ts';
+
+@source '../node_modules/@heroui/theme/dist/**/*.{js,ts,jsx,tsx}';
+@custom-variant dark (&:is(.dark *));
+
+@import "./token/colors.css";
+@import "./token/typography.css";
+
+body {
+  font-family: var(--font-family-base);
+  font-weight: var(--font-weight-regular);
+  font-size: var(--font-size-body);
+}
