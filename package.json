@@ -1,5 +1,5 @@
 {
-  "name": "@nerux/design-system",
+  "name": "nerux-design-system",
   "version": "0.1.0",
   "description": "Nerux Design System",
   "main": "dist/nerux-ds.js",
