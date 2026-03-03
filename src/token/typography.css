@@ -1,15 +1,19 @@
-:root {
-  /* Font families */
-  --font-family-base: "Open Sans", system-ui, sans-serif;
+@layer base {
+  :root {
+    /* Font families */
+    --font-family-base: "Open Sans", system-ui, sans-serif;
 
-  /* Font sizes */
-  --font-size-body: 54px;
-  --font-size-title: 20px;
-  --font-size-subtitle: 16px;
-  --font-size-caption: 12px;
+    /* Font sizes */
+    --font-size-title: 100px;
+    --font-size-subtitle: 16px;
+    --font-size-body: 54px;
+    --font-size-caption: 12px;
 
-  /* Font weight */
-  --font-weight-regular: 800;
-  --font-weight-medium: 500;
-  --font-weight-semibold: 600;
+    /* Font weight */
+    --font-weight-light: 300;
+    --font-weight-regular: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+  }
 }

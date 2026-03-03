@@ -1,10 +1,40 @@
-:root {
-
+:root[data-theme="light"] {
+  --color-bg: #FFFFFF;
   /* Paleta semantica */
-  --color-exito: 50 205 50;
-  --color-advertencia: 255 215 0;
-  --color-error: 255 77 77;
-  --color-informacion: 0 123 255;
+  --color-exito: #32CD32;
+  --color-advertencia: #FFD700;
+  --color-error: #FF4D4D;
+  --color-informacion: #007BFF;
+
+
+  /*Brand colors*/
+  --color-primary-bg-default: #8e05c2;
+  --color-disabled-bg-default: #6e5a75;
+  --color-neutral-bg-default: #f2f2f2;
+
+  --color-primary-text-default: #121212;
+  --color-primary-text-disabled: #999999;
+
+  /* Paleta input */
+
+  /* Paleta botones */
+}
+
+:root[data-theme="dark"] {
+  --color-bg: #121212;
+  /* Paleta semantica */
+  --color-exito: #32CD32;
+  --color-advertencia: #FFD700;
+  --color-error: #FF4D4D;
+  --color-informacion: #007BFF;
+
+  /*Brand colors*/
+  --color-primary-bg-default: #8e05c2;
+  --color-disabled-bg-default: #6e5a75;
+  --color-neutral-bg-default: #4F4F4F;
+
+  --color-primary-text-default: #f2f2f2;
+  --color-primary-text-disabled: #999999;
 
   /* Paleta input */
 

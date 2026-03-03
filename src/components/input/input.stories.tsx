@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { Input } from "./input";
+import { InputNerux } from "./input";
 
-const meta: Meta<typeof Input> = {
+const meta: Meta<typeof InputNerux> = {
   title: "Design System/Input",
-  component: Input,
+  component: InputNerux,
   argTypes: {
     type: {
       control: "select",
@@ -20,14 +20,32 @@ const meta: Meta<typeof Input> = {
 
 export default meta;
 
-type Story = StoryObj<typeof Input>;
+type Story = StoryObj<typeof InputNerux>;
 
-export const Disable: Story = {
+export const Error: Story = {
   args: {
     label: "Email",
     disabled: false,
     required: true,
     placeholder: "Ingrese su email",
     error: "Correo incorrecto"
+  }
+}
+
+export const Default: Story = {
+  args: {
+    label: "Email",
+    disabled: false,
+    required: true,
+    placeholder: "Ingrese su email",
+  }
+}
+
+export const Disabled: Story = {
+  args: {
+    label: "Email",
+    disabled: true,
+    required: true,
+    placeholder: "Ingrese su email",
   }
 }

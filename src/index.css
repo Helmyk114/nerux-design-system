@@ -7,8 +7,10 @@
 @import "./token/colors.css";
 @import "./token/typography.css";
 
-body {
+html,
+body,
+#root {
   font-family: var(--font-family-base);
-  font-weight: var(--font-weight-regular);
-  font-size: var(--font-size-body);
+  background-color: var(--color-bg);
+  transition: background-color 0.2s ease;
 }

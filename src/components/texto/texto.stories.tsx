@@ -1,29 +1,24 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { Text } from './texto';
+import { TextNerux } from './texto';
 
-const meta: Meta<typeof Text> = {
+const meta: Meta<typeof TextNerux> = {
   title: "Design System/Text",
-  component: Text,
+  component: TextNerux,
   argTypes: {
     variant: {
       control: "select",
-      options: ["title", "subtitle", "body", "caption"],
-    },
-    as: {
-      control: "select",
-      options: ["h1", "h2", "p", "span"],
+      options: ["title", "subtitle", "body", "caption", "error"],
     },
   },
 };
 
 export default meta;
 
-type Story = StoryObj<typeof Text>;
+type Story = StoryObj<typeof TextNerux>;
 
 export const Title: Story = {
   args: {
     variant: "title",
-    as: "h1",
     children: "Título principal",
     className: ""
   },
@@ -32,7 +27,6 @@ export const Title: Story = {
 export const Subtitle: Story = {
   args: {
     variant: "subtitle",
-    as: "h2",
     children: "Subtítulo",
   },
 };
@@ -40,7 +34,6 @@ export const Subtitle: Story = {
 export const Body: Story = {
   args: {
     variant: "body",
-    as: "span",
     children: "Texto de cuerpo normal",
   },
 };
@@ -48,7 +41,13 @@ export const Body: Story = {
 export const Caption: Story = {
   args: {
     variant: "caption",
-    as: "span",
     children: "Texto auxiliar",
+  },
+};
+
+export const Error: Story = {
+  args: {
+    variant: "error",
+    children: "Mensaje de error",
   },
 };

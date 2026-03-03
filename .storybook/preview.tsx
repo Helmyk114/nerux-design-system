@@ -1,14 +1,36 @@
-import "../src/index.css"
+import "../src/index.css";
 import type { Preview } from "@storybook/react-vite";
 import { HeroUIProvider } from "@heroui/react";
 
 const preview: Preview = {
+  globalTypes: {
+    theme: {
+      name: "Theme",
+      description: "Global theme for components",
+      defaultValue: "light",
+      toolbar: {
+        icon: "circlehollow",
+        items: [
+          { value: "light", title: "Light" },
+          { value: "dark", title: "Dark" },
+        ],
+      },
+    },
+  },
+
   decorators: [
-    (Story) => (
-      <HeroUIProvider>
-        <Story />
-      </HeroUIProvider>
-    ),
+    (Story, context) => {
+      document.documentElement.setAttribute(
+        "data-theme",
+        context.globals.theme
+      );
+
+      return (
+        <HeroUIProvider>
+          <Story />
+        </HeroUIProvider>
+      );
+    },
   ],
 
   parameters: {
