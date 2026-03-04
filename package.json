@@ -1,6 +1,6 @@
 {
   "name": "nerux-design-system",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "Nerux Design System",
   "main": "dist/nerux-ds.cjs.js",
   "module": "dist/nerux-ds.es.js",
