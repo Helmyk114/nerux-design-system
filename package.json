@@ -5,6 +5,7 @@
   "main": "dist/nerux-ds.cjs.js",
   "module": "dist/nerux-ds.es.js",
   "types": "dist/index.d.ts",
+  "style": "dist/nerux-design-system.css",
   "files": [
     "dist"
   ],
