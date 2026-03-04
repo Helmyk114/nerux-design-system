@@ -9,9 +9,9 @@ export const semanticMap: Record<TextVariant, React.ElementType> = {
 };
 
 export const textVariants: Record<TextVariant, string> = {
-  title: `font-[var(--font-weight-semibold)] text-(--color-primary-text-default)`,
-  subtitle: `font-[var(--font-weight-medium)] text-(--color-primary-text-default)`,
-  body: `font-[var(--font-weight-regular)] text-(--color-primary-text-default)`,
-  caption: `font-[var(--font-weight-regular)] text-(--color-primary-text-default)`,
+  title: `font-[var(--font-weight-semibold)] text-(color:--color-primary-text-default) text-(size:--font-size-title)`,
+  subtitle: `font-[var(--font-weight-medium)] text-(color:--color-primary-text-default) text-(size:--font-size-subtitle)`,
+  body: `font-[var(--font-weight-regular)] text-(color:--color-primary-text-default) text-(size:--font-size-body)`,
+  caption: `font-[var(--font-weight-regular)] text-(color:--color-primary-text-default) text-(size:--font-size-caption)`,
   error: `font-[var(--font-weight-light)] text-[var(--color-error)]`,
 };

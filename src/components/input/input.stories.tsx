@@ -49,3 +49,11 @@ export const Disabled: Story = {
     placeholder: "Ingrese su email",
   }
 }
+
+export const Password: Story = {
+  args: {
+    label: "Contraseña",
+    type: "password",
+    placeholder: "Ingrese su contraseña",
+  }
+}

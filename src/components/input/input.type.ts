@@ -1,4 +1,5 @@
 import type { InputProps as HeroInputProps } from "@heroui/react";
+import type { IconName } from "../icons/icon.type";
 
 export interface InputProps {
   name: string;
@@ -10,8 +11,8 @@ export interface InputProps {
   error?: string;
   disabled?: boolean;
   required?: boolean;
-  startIcon?: React.ReactNode;
-  endIcon?: React.ReactNode;
+  startIcon?: IconName;
+  endIcon?: IconName;
   minLength?: number;
   maxLength?: number;
 }

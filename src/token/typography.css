@@ -4,9 +4,9 @@
     --font-family-base: "Open Sans", system-ui, sans-serif;
 
     /* Font sizes */
-    --font-size-title: 100px;
+    --font-size-title: 24px;
     --font-size-subtitle: 16px;
-    --font-size-body: 54px;
+    --font-size-body: 14px;
     --font-size-caption: 12px;
 
     /* Font weight */
