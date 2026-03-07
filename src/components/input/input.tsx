@@ -53,7 +53,10 @@ export function InputNerux({
         ) : null
       }
       classNames={{
-        label: ["focus: !text-(--color-primary-text-default)"],
+        label: [
+          "focus: !text-(--color-primary-text-default)",
+          hasError ? "!text-(--color-error)" : "",
+        ],
         inputWrapper: [
           "!text-(--color-primary-text-default)",
           "focus-within:!border-[var(--color-primary-bg-default)]",

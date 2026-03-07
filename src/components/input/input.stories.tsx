@@ -25,8 +25,8 @@ type Story = StoryObj<typeof InputNerux>;
 export const Error: Story = {
   args: {
     label: "Email",
-    disabled: false,
-    required: true,
+    isDisabled: false,
+    isRequired: true,
     placeholder: "Ingrese su email",
     error: "Correo incorrecto"
   }
@@ -35,8 +35,8 @@ export const Error: Story = {
 export const Default: Story = {
   args: {
     label: "Email",
-    disabled: false,
-    required: true,
+    isDisabled: false,
+    isRequired: false,
     placeholder: "Ingrese su email",
   }
 }
@@ -44,8 +44,8 @@ export const Default: Story = {
 export const Disabled: Story = {
   args: {
     label: "Email",
-    disabled: true,
-    required: true,
+    isDisabled: true,
+    isRequired: true,
     placeholder: "Ingrese su email",
   }
 }

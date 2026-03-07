@@ -4,30 +4,29 @@ import clsx from "clsx";
 import { buttonVariant } from "./button.varaint";
 
 export function ButtonNerux({
-  children,
-  disabled = false,
-  variant = "solid",
   color = "primary",
   size = "md",
-  loading = false,
   startIcon,
   endIcon,
   type = "button",
-  onPress,
+  isDisabled,
+  isLoading,
+  children
 }: ButtonProps) {
-  return(
-  <HeroButton
-    disabled={disabled}
-    variant={variant}
-    size={size}
-    isLoading={loading}
-    startContent={startIcon}
-    endContent={endIcon}
-    type={type}
-    onPress={onPress}
-    className={clsx(buttonVariant[color])}
-  >
-    {children}
-  </HeroButton> 
+  return (
+    <HeroButton
+      variant="solid"
+      size={size}
+      startContent={startIcon}
+      endContent={endIcon}
+      type={type}
+      isDisabled={isDisabled}
+      isLoading={isLoading}
+      className={clsx(
+        isDisabled ? buttonVariant.disabled : buttonVariant[color],
+      )}
+    >
+      {children}
+    </HeroButton>
   );
 }

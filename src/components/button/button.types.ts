@@ -1,18 +1,13 @@
+import type { ButtonProps as HeroButtonProps } from "@heroui/button";
 import type { IconName } from "../icons/icon.type";
 
-type ButtonVariant = "solid" | "bordered" | "light" | "flat" | "faded" | "shadow" | "ghost"
 export type ButtonColor = "primary" | "disabled" | "danger" | "neutral";
 type ButtonSize = "sm" | "md" | "lg";
 
-export interface ButtonProps {
-  children: React.ReactNode;
-  variant?: ButtonVariant;
+export interface ButtonProps extends Omit<HeroButtonProps , "variant" | "color" | "size" | "startIcon" | "endIcon"> {
   color: ButtonColor;
   size?: ButtonSize;
-  loading?: boolean;
-  disabled?: boolean;
   startIcon?: IconName;
   endIcon?: IconName;
   type?: "button" | "submit" | "reset";
-  onPress?: () => void;
 }
