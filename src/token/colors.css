@@ -1,5 +1,5 @@
 :root[data-theme="light"] {
-  --color-bg: #ffffff;
+  --color-bg: #EDEDED;
   /* Paleta semantica */
   --color-exito: #32cd32;
   --color-advertencia: #ffd700;
@@ -12,13 +12,10 @@
   --color-neutral-bg-default: #f2f2f2;
 
   --color-border-default: #e5e5e5;
+  --color-surface-default: #F7F7F7;
 
   --color-primary-text-default: #121212;
   --color-primary-text-disabled: #999999;
-
-  /* Paleta input */
-
-  /* Paleta botones */
 }
 
 :root[data-theme="dark"] {
@@ -35,11 +32,8 @@
   --color-neutral-bg-default: #4f4f4f;
 
   --color-border-default: #333333;
+  --color-surface-default: #1E1E1E;
 
   --color-primary-text-default: #f2f2f2;
   --color-primary-text-disabled: #999999;
-
-  /* Paleta input */
-
-  /* Paleta botones */
 }

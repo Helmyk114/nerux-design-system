@@ -5,19 +5,11 @@ import { useState } from "react";
 import { IconNerux } from "../icons/icon";
 
 export function InputNerux({
-  name,
-  label,
   type = "text",
-  placeholder,
-  value,
-  onChange,
   error,
-  required,
-  disabled = false,
   startIcon,
   endIcon,
-  minLength,
-  maxLength,
+  ...props
 }: InputProps) {
   const [isVisible, setIsVisible] = useState(false);
   const hasError = Boolean(error);
@@ -28,14 +20,10 @@ export function InputNerux({
 
   return (
     <InputHero
-      name={name}
-      label={label}
+      {...props}
       labelPlacement="outside"
       variant="bordered"
       type={inputType}
-      placeholder={placeholder}
-      value={value}
-      onChange={(e) => onChange?.(e.target.value)}
       errorMessage={
         hasError ? (
           <div className="flex items-center gap-1">
@@ -45,8 +33,6 @@ export function InputNerux({
         ) : null
       }
       isInvalid={hasError}
-      isRequired={required}
-      isDisabled={disabled}
       startContent={startIcon}
       endContent={
         type === "password" ? (
@@ -66,8 +52,6 @@ export function InputNerux({
           <IconNerux name={endIcon} />
         ) : null
       }
-      maxLength={maxLength}
-      minLength={minLength}
       classNames={{
         label: ["focus: !text-(--color-primary-text-default)"],
         inputWrapper: [
