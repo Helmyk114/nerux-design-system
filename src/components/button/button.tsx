@@ -11,7 +11,7 @@ export function ButtonNerux({
   type = "button",
   isDisabled,
   isLoading,
-  children
+  children,
 }: ButtonProps) {
   return (
     <HeroButton

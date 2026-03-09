@@ -8,7 +8,7 @@ import {
 } from "./index";
 
 const meta: Meta<typeof CardNerux> = {
-  title: "Desing System/Card",
+  title: "Design System/Card",
   component: CardNerux,
 } satisfies Meta<typeof CardNerux>;
 

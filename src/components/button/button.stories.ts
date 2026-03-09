@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { ButtonNerux } from "./button";
 
 const meta: Meta<typeof ButtonNerux> = {
-  title: "Desing System/Button",
+  title: "Design System/Button",
   component: ButtonNerux,
 };
 

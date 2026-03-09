@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { IconNerux } from "./icon";
 
 const meta: Meta<typeof IconNerux> = {
-  title: "Desing System/Icon",
+  title: "Design System/Icone",
   component: IconNerux,
 };
 

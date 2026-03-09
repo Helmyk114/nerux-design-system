@@ -8,3 +8,4 @@ export { CardNerux } from "./components/card/card";
 export { CardHeaderNerux } from "./components/card/cardHeader";
 export { CardBodyNerux } from "./components/card/cardBody";
 export { CardFooterNerux } from "./components/card/cardFooter";
+export { TableNerux } from "./components/table/table"; 
