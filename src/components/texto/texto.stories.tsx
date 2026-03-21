@@ -20,7 +20,6 @@ export const Title: Story = {
   args: {
     variant: "title",
     children: "Título principal",
-    className: ""
   },
 };
 
@@ -49,5 +48,14 @@ export const Error: Story = {
   args: {
     variant: "error",
     children: "Mensaje de error",
+  },
+};
+
+export const mixStyles: Story = {
+  args: {
+    as: "span",
+    variant: "subtitle",
+    children: "Texto en cursiva",
+    italic: true,
   },
 };

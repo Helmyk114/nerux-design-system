@@ -1,16 +1,33 @@
 import clsx from "clsx";
 import { type TextProps } from "./texto.types";
-import { semanticMap, textVariants } from "./texto.variant";
+import {
+  colorVariants,
+  semanticMap,
+  textVariants,
+  weightVariants,
+} from "./texto.variant";
 
 export function TextNerux({
   variant = "body",
   children,
-  className,
+  color,
+  weight,
+  as,
+  italic,
 }: TextProps) {
-  const Component = semanticMap[variant];
+  const Component = as || semanticMap[variant];
+  const colorClass = color ? colorVariants[color] : "";
+  const weightClass = weight ? weightVariants[weight] : "";
 
   return (
-    <Component className={clsx(textVariants[variant], className)}>
+    <Component
+      className={clsx(
+        textVariants[variant],
+        italic && "italic",
+        colorClass,
+        weightClass,
+      )}
+    >
       {children}
     </Component>
   );
