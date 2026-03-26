@@ -1,4 +1,4 @@
-import type { ButtonProps as HeroButtonProps } from "@heroui/button";
+import type { ButtonProps as HeroButtonProps } from "@heroui/react";
 import type { IconName } from "../icons/icon.type";
 
 export type ButtonColor = "primary" | "disabled" | "danger" | "neutral";

@@ -1,22 +1,16 @@
-import {
-  Modal,
-  ModalContent,
-  type ModalProps as HeroModalProps,
-} from "@heroui/react";
+import { Modal, type ModalProps as HeroModalProps } from "@heroui/react";
 
 export function ModalNerux({ children, ...props }: HeroModalProps) {
   return (
-    <Modal
-      {...props}
-      backdrop="blur"
-      size="md"
-      classNames={{
-        header:
-          "border-b-[1px] border-(--color-neutral-bg-default) w-[90%] mx-auto",
-        base: "bg-(--color-surface-default) text-(color:--color-primary-text-default)",
-      }}
-    >
-      <ModalContent>{children}</ModalContent>
+    <Modal {...props}>
+      <Modal.Backdrop variant="blur">
+        <Modal.Container size="md">
+          <Modal.Dialog>
+            <Modal.CloseTrigger />
+            {children}
+          </Modal.Dialog>
+        </Modal.Container>
+      </Modal.Backdrop>
     </Modal>
   );
 }

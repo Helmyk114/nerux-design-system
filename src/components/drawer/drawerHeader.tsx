@@ -1,8 +1,9 @@
-import {
-  DrawerHeader,
-  type DrawerProps as HeroDrawerProps,
-} from "@heroui/react";
+import { Drawer } from "@heroui/react";
+import type { ComponentProps } from "react";
 
-export function DrawerHeaderNerux({ children, ...prop }: HeroDrawerProps) {
-  return <DrawerHeader {...prop}>{children}</DrawerHeader>;
+export function DrawerHeaderNerux({
+  children,
+  ...prop
+}: ComponentProps<typeof Drawer.Header>) {
+  return <Drawer.Header {...prop}>{children}</Drawer.Header>;
 }

@@ -6,6 +6,8 @@ import {
   ModalBodyNerux,
   ModalFooterNerux,
 } from "./index";
+import { ModalIconNerux } from "./modalIcon";
+import { IconNerux } from "../icons/icon";
 
 const meta: Meta = {
   title: "Design System/Modal",
@@ -18,8 +20,12 @@ type Story = StoryObj<typeof ModalNerux>;
 
 export const Default: Story = {
   render: () => (
-    <ModalNerux isOpen={true}>
-      <ModalHeaderNerux>Modal Header</ModalHeaderNerux>
+    <ModalNerux isOpen={true} >
+      <ModalHeaderNerux >
+        <ModalIconNerux className="flex "> 
+          <IconNerux name="IconAlertTriangle" size="xl" color="error" /></ModalIconNerux>
+          Modal Header
+        </ModalHeaderNerux>
       <ModalBodyNerux>Modal Body</ModalBodyNerux>
       <ModalFooterNerux>Modal Footer</ModalFooterNerux>
     </ModalNerux>

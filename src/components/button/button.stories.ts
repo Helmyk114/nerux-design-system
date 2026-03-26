@@ -13,7 +13,6 @@ type Story = StoryObj<typeof ButtonNerux>;
 export const Primary: Story = {
   args: {
     children: "Guardar",
-    isLoading: false,
     isDisabled: false,
     type: "button",
   },
@@ -22,7 +21,6 @@ export const Primary: Story = {
 export const Loading: Story = {
   args: {
     children: "Cargando",
-    isLoading: true,
   },
 };
 
@@ -37,7 +35,6 @@ export const Disabled: Story = {
 export const Danger: Story = {
   args: {
     children: "Eliminar",
-    isLoading: false,
     isDisabled: false,
     type: "button",
     color: "danger",
@@ -47,7 +44,6 @@ export const Danger: Story = {
 export const Neutral: Story = {
   args: {
     children: "Cancelar",
-    isLoading: false,
     isDisabled: false,
     type: "button",
     color: "neutral",

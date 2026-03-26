@@ -1,5 +1,9 @@
-import { ModalFooter, type ModalProps as HeroModalProps } from "@heroui/react";
+import { Modal } from "@heroui/react";
+import type { ComponentProps } from "react";
 
-export function ModalFooterNerux({ children, ...props }: HeroModalProps) {
-  return <ModalFooter {...props}>{children}</ModalFooter>;
+export function ModalFooterNerux({
+  children,
+  ...props
+}: ComponentProps<typeof Modal.Header>) {
+  return <Modal.Footer {...props}>{children}</Modal.Footer>;
 }

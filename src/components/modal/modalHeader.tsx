@@ -1,5 +1,9 @@
-import { ModalHeader, type ModalProps as HeroModalProps } from "@heroui/react";
+import { Modal } from "@heroui/react";
+import type { ComponentProps } from "react";
 
-export function ModalHeaderNerux({ children, ...props }: HeroModalProps) {
-  return <ModalHeader {...props}>{children}</ModalHeader>;
+export function ModalHeaderNerux({
+  children,
+  ...props
+}: ComponentProps<typeof Modal.Header>) {
+  return <Modal.Header {...props}>{children}</Modal.Header>;
 }

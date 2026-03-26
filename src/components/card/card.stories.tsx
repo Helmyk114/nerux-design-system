@@ -3,8 +3,10 @@ import type { Meta, StoryObj } from "@storybook/react";
 import {
   CardNerux,
   CardHeaderNerux,
-  CardBodyNerux,
   CardFooterNerux,
+  CardTitleNerux,
+  CardDescriptionNerux,
+  CardContentNerux,
 } from "./index";
 
 const meta: Meta<typeof CardNerux> = {
@@ -19,8 +21,11 @@ type Story = StoryObj<typeof CardNerux>;
 export const Default: Story = {
   render: () => (
     <CardNerux>
-      <CardHeaderNerux>Card Header</CardHeaderNerux>
-      <CardBodyNerux>Card Body</CardBodyNerux>
+      <CardHeaderNerux>
+        <CardTitleNerux>Titulo de la Card</CardTitleNerux>
+        <CardDescriptionNerux>Descripcion del Header de la Card</CardDescriptionNerux>
+      </CardHeaderNerux>
+      <CardContentNerux>Contenido de la card</CardContentNerux>
       <CardFooterNerux>Card Footer</CardFooterNerux>
     </CardNerux>
   ),
