@@ -1,5 +1,5 @@
 :root[data-theme="light"] {
-  --color-bg: #EDEDED;
+  --color-bg: #ededed;
   /* Paleta semantica */
   --color-exito: #32cd32;
   --color-advertencia: #ffd700;
@@ -12,8 +12,8 @@
   --color-neutral-bg-default: #f2f2f2;
 
   --color-border-default: #e5e5e5;
-  --color-surface-default: #F7F7F7;
-  --surface-table-header: #ECECEC;
+  --color-surface-default: #f7f7f7;
+  --surface-table-header: #ececec;
 
   --color-primary-text-default: #121212;
   --color-primary-text-disabled: #999999;
@@ -33,8 +33,8 @@
   --color-neutral-bg-default: #4f4f4f;
 
   --color-border-default: #333333;
-  --color-surface-default: #1E1E1E;
-  --surface-table-header: #2C2C2C;
+  --color-surface-default: #1e1e1e;
+  --surface-table-header: #2c2c2c;
 
   --color-primary-text-default: #f2f2f2;
   --color-primary-text-disabled: #999999;

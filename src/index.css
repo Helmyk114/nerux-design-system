@@ -1,10 +1,8 @@
 @import "tailwindcss";
-@import "@heroui/styles"; 
-
-/* @source '../node_modules/@heroui/theme/dist/**.{js,ts,jsx,tsx}';
-/* @custom-variant dark (&:is(.dark *)); */
+@import "@heroui/styles";
 
 @import "./token/colors.css";
+@import "./token/heroui-theme.css";
 @import "./token/typography.css";
 
 html,
