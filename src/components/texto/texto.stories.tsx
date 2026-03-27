@@ -1,61 +1,23 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { TextNerux } from './texto';
+import { TextNerux } from "./index";
 
 const meta: Meta<typeof TextNerux> = {
   title: "Design System/Text",
   component: TextNerux,
-  argTypes: {
-    variant: {
-      control: "select",
-      options: ["title", "subtitle", "body", "caption", "error"],
-    },
-  },
-};
+} satisfies Meta<typeof TextNerux>;
 
 export default meta;
 
 type Story = StoryObj<typeof TextNerux>;
 
-export const Title: Story = {
-  args: {
-    variant: "title",
-    children: "Título principal",
-  },
-};
-
-export const Subtitle: Story = {
-  args: {
-    variant: "subtitle",
-    children: "Subtítulo",
-  },
-};
-
-export const Body: Story = {
-  args: {
-    variant: "body",
-    children: "Texto de cuerpo normal",
-  },
-};
-
-export const Caption: Story = {
-  args: {
-    variant: "caption",
-    children: "Texto auxiliar",
-  },
-};
-
-export const Error: Story = {
-  args: {
-    variant: "error",
-    children: "Mensaje de error",
-  },
-};
-
-export const mixStyles: Story = {
-  args: {
-    as: "span",
-    variant: "subtitle",
-    children: "Texto en cursiva",
-    italic: true,
-  },
+export const Default: Story = {
+  render: () => (
+    <div className="grid grid-cols-1 gap-6">
+      <TextNerux variant="title">{"Soy un Titulo"}</TextNerux>
+      <TextNerux variant="subtitle">{"Soy un Subtitulo"}</TextNerux>
+      <TextNerux variant="body">{"Soy un texto normal"}</TextNerux>
+      <TextNerux variant="caption">{"Soy un texto auxiliar"}</TextNerux>
+      <TextNerux variant="error">{"Soy un error"}</TextNerux>
+    </div>
+  ),
 };
