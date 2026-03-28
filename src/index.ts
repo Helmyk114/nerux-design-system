@@ -21,4 +21,5 @@ export { ModalIconNerux } from "./components/modal/modalIcon";
 export { PaginationNerux } from "./components/Pagination"
 export { SelectNerux } from "./components/select/select";
 export { TableNerux } from "./components/table/table";
+export { TableContentNerux } from "./components/table/tableContent";
 export { TextNerux } from "./components/texto/texto";
