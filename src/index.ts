@@ -23,3 +23,6 @@ export { SelectNerux } from "./components/select/select";
 export { TableNerux } from "./components/table/table";
 export { TableContentNerux } from "./components/table/tableContent";
 export { TextNerux } from "./components/texto/texto";
+
+export * from "./components/web";
+export * from "./components/mobile";
