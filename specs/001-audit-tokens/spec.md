@@ -2,7 +2,7 @@
 
 **Feature Branch**: `001-audit-tokens`  
 **Created**: 2026-04-11  
-**Status**: Draft  
+**Status**: Clarified  
 **Input**: Audit existing tokens and component patterns, complete missing tokens for consistency
 
 ## User Scenarios & Testing
@@ -30,7 +30,7 @@ As a developer, I need clearly defined tokens for all visual dimensions (spacing
 
 **Why this priority**: P1 - Directly enables the success criteria: all hardcoded values must have token equivalents.
 
-**Independent Test**: Can be fully tested by verifying that a complete token file (`tokens-complete.css`) defines every visual attribute used by at least one component.
+**Independent Test**: Can be fully tested by verifying that category-specific token files (spacing.css, borders.css, shadows.css, transitions.css) define every visual attribute used by at least one component.
 
 **Acceptance Scenarios**:
 
@@ -79,6 +79,11 @@ As a team member onboarding to the design system, I need clear documentation sho
 - How do we handle transitional values during migration (e.g., when refactoring Input to use new tokens)?
 - Should tokens include responsive values (e.g., `--spacing-mobile-4: 0.75rem`, `--spacing-desktop-4: 1rem`)?
 - Dark mode: do we need separate token definitions for all properties, or can some inherit from light mode?
+- Hardcoded values detected in components: Input uses `border-[0.2px]`, `rounded-lg`; Components use `gap-4`, `gap-6` directly in Tailwind classes
+- Nomenclatura inconsistencies: `--surface-table-header` lacks 'color-' prefix compared to `--color-surface-default`
+- Missing tokens identified: spacing (--spacing-xs: 0.5rem, --spacing-sm: 0.75rem, etc.), borders (--border-width-thin: 0.2px, --radius-sm: 0.25rem), shadows (--shadow-sm: 0 1px 2px rgba(0,0,0,0.05)), transitions (--transition-default: 200ms ease)
+- Theme consistency criteria: Define all new tokens in both themes with appropriate values (darker shadows in dark mode, better text contrast). Verify in Storybook no visual breaks when toggling themes
+- Criteria for 'in use' tokens: Token is in use if referenced in at least one component or story (grep search in src/components/ and .stories files). Do not modify existing token values, only add new tokens. Verify references in CSS and Tailwind classes
 
 ---
 
@@ -86,7 +91,7 @@ As a team member onboarding to the design system, I need clear documentation sho
 
 ### Functional Requirements
 
-- **FR-001**: System MUST maintain a complete CSS token file (`src/token/tokens-complete.css`) that defines every visual dimension used across components
+- **FR-001**: System MUST maintain complete CSS token files (src/token/spacing.css, src/token/borders.css, src/token/shadows.css, src/token/transitions.css) that define every visual dimension used across components
 - **FR-002**: System MUST define token categories: Colors (semantic + brand), Typography (sizes, weights, families), Spacing (padding, margin, gap), Borders (widths, radii, styles), Shadows (depths, colors)
 - **FR-003**: All component implementations MUST use only CSS custom properties for visual attributes—no hardcoded Tailwind utilities like `border-[0.2px]`, `rounded-lg`, `gap-4`
 - **FR-004**: System MUST support light/dark theme switching via `[data-theme="light|dark"]` with complete token overrides for both themes

@@ -1,5 +1,4 @@
 ---
-
 description: "Task list template for feature implementation"
 ---
 
@@ -37,14 +36,15 @@ description: "Task list template for feature implementation"
 
 **Purpose**: Extend existing token files with missing categories (production-safe approach)
 
-**⚠️ IMPORTANT**: Add tokens to existing files only—do not create new files
+**⚠️ IMPORTANT**: Add tokens to category-specific files in src/token/—create new files only if category file doesn't exist
 
-- [ ] T002 [P] Add spacing tokens (--spacing-xs through --spacing-xl) to existing src/token/ file
-- [ ] T003 [P] Add border tokens (--border-width-thin, borders-radius-sm, etc.) to existing src/token/ file
-- [ ] T004 [P] Add shadow tokens (--shadow-sm through --shadow-xl) to existing src/token/ file
-- [ ] T005 Verify all new tokens have light and dark theme variants in same file as existing tokens
+- [ ] T002 [P] Add spacing tokens (--spacing-xs through --spacing-xl) to src/token/spacing.css
+- [ ] T003 [P] Add border tokens (--border-width-thin, --border-radius-sm, etc.) to src/token/borders.css
+- [ ] T004 [P] Add shadow tokens (--shadow-sm through --shadow-xl) to src/token/shadows.css
+- [ ] T005 [P] Add transition tokens (--transition-default, etc.) to src/token/transitions.css
+- [ ] T006 Verify all new tokens have light and dark theme variants in their respective files
 
-**Checkpoint**: All missing tokens added to existing files; safe to proceed with component refactoring
+**Checkpoint**: All missing token categories added; verify src/index.css imports all token files before proceeding with component refactoring
 
 ---
 
@@ -56,11 +56,11 @@ description: "Task list template for feature implementation"
 
 ### Implementation for User Story 1
 
-- [ ] T006 [P] [US1] Audit existing tokens in src/token/colors.css and src/token/typography.css
-- [ ] T007 [P] [US1] Scan all components in src/components/web/ for hardcoded values
-- [ ] T008 [P] [US1] Identify nomenclatura inconsistencies (--surface-table-header vs --color-surface-default)
-- [ ] T009 [US1] Generate gap analysis report comparing current vs required tokens
-- [ ] T010 [US1] Validate existing token usage in components via grep search
+- [ ] T007 [P] [US1] Audit existing tokens in src/token/colors.css and src/token/typography.css
+- [ ] T008 [P] [US1] Scan all components in src/components/web/ for hardcoded values
+- [ ] T009 [P] [US1] Identify nomenclatura inconsistencies (--surface-table-header vs --color-surface-default)
+- [ ] T010 [US1] Generate gap analysis report comparing current vs required tokens
+- [ ] T011 [US1] Validate existing token usage in components via grep search
 
 **Checkpoint**: At this point, US1 should provide complete inventory of current state
 
@@ -74,14 +74,14 @@ description: "Task list template for feature implementation"
 
 ### Implementation for User Story 2
 
-- [ ] T011 [P] [US2] Update ButtonNerux component to use token references in src/components/web/button/button.tsx
-- [ ] T012 [P] [US2] Update InputNerux component to replace border-[0.2px], rounded-lg in src/components/web/input/input.tsx
-- [ ] T013 [P] [US2] Update CardNerux component styling in src/components/web/card/card.tsx
-- [ ] T014 [P] [US2] Update ModalNerux component in src/components/web/modal/modal.tsx
-- [ ] T015 [P] [US2] Update DrawerNerux component in src/components/web/drawer/drawer.tsx
-- [ ] T016 [P] [US2] Update remaining components (Table, Pagination, etc.) in src/components/web/
-- [ ] T017 [US2] Update all Storybook stories to use token-based CSS classes
-- [ ] T018 [US2] Verify no hardcoded Tailwind utilities remain in component files
+- [ ] T012 [P] [US2] Update ButtonNerux component to use token references in src/components/web/button/button.tsx
+- [ ] T013 [P] [US2] Update InputNerux component to replace border-[0.2px], rounded-lg in src/components/web/input/input.tsx
+- [ ] T014 [P] [US2] Update CardNerux component styling in src/components/web/card/card.tsx
+- [ ] T015 [P] [US2] Update ModalNerux component in src/components/web/modal/modal.tsx
+- [ ] T016 [P] [US2] Update DrawerNerux component in src/components/web/drawer/drawer.tsx
+- [ ] T017 [P] [US2] Update remaining components (Table, Pagination, etc.) in src/components/web/
+- [ ] T018 [US2] Update all Storybook stories to use token-based CSS classes
+- [ ] T019 [US2] Verify no hardcoded Tailwind utilities remain in component files
 
 **Checkpoint**: At this point, US2 should have complete token system with all components migrated
 
@@ -95,11 +95,11 @@ description: "Task list template for feature implementation"
 
 ### Implementation for User Story 3
 
-- [ ] T019 [P] [US3] Verify all tokens defined in both light and dark themes
-- [ ] T020 [P] [US3] Test theme switching in Storybook across all component stories
-- [ ] T021 [P] [US3] Validate contrast ratios for text colors in both themes
-- [ ] T022 [US3] Add automated theme switching tests to Storybook configuration
-- [ ] T023 [US3] Document theme-specific token adjustments (darker shadows in dark mode)
+- [ ] T020 [P] [US3] Verify all tokens defined in both light and dark themes
+- [ ] T021 [P] [US3] Test theme switching in Storybook across all component stories
+- [ ] T022 [P] [US3] Validate contrast ratios for text colors in both themes
+- [ ] T023 [US3] Add automated theme switching tests to Storybook configuration
+- [ ] T024 [US3] Document theme-specific token adjustments (darker shadows in dark mode)
 
 **Checkpoint**: At this point, US3 should guarantee theme consistency
 
@@ -113,11 +113,11 @@ description: "Task list template for feature implementation"
 
 ### Implementation for User Story 4
 
-- [ ] T024 [P] [US4] Create token usage documentation in src/token/README.md
-- [ ] T025 [P] [US4] Add TypeScript type definitions for token values
-- [ ] T026 [P] [US4] Document component token dependencies in each component file
-- [ ] T027 [P] [US4] Create migration guide for deprecated token patterns
-- [ ] T028 [US4] Add token validation ESLint rules to prevent hardcoded values
+- [ ] T025 [P] [US4] Create token usage documentation in src/token/README.md
+- [ ] T026 [P] [US4] Add TypeScript type definitions for token values
+- [ ] T027 [P] [US4] Document component token dependencies in each component file
+- [ ] T028 [P] [US4] Create migration guide for deprecated token patterns
+- [ ] T029 [US4] Add token validation ESLint rules to prevent hardcoded values
 
 **Checkpoint**: At this point, US4 should provide complete documentation
 
@@ -127,13 +127,13 @@ description: "Task list template for feature implementation"
 
 **Purpose**: Final validation, testing, and quality assurance
 
-- [ ] T029 Run full Storybook build and verify no visual regressions
-- [ ] T030 [P] Execute ESLint across all component files to ensure no hardcoded values
-- [ ] T031 [P] Test TypeScript compilation with new token types
-- [ ] T032 [P] Validate build output contains all token definitions
-- [ ] T033 [P] Update package.json version for MINOR release (new tokens added)
-- [ ] T034 Create final validation checklist for token system completeness
-- [ ] T035 Document any remaining edge cases or known limitations
-- [ ] T036 Prepare release notes for token system completion
+- [ ] T030 Run full Storybook build and verify no visual regressions
+- [ ] T031 [P] Execute ESLint across all component files to ensure no hardcoded values
+- [ ] T032 [P] Test TypeScript compilation with new token types
+- [ ] T033 [P] Validate build output contains all token definitions
+- [ ] T034 [P] Update package.json version for MINOR release (new tokens added)
+- [ ] T035 Create final validation checklist for token system completeness
+- [ ] T036 Document any remaining edge cases or known limitations
+- [ ] T037 Prepare release notes for token system completion
 
 **Final Checkpoint**: All success criteria met, token system production-ready
