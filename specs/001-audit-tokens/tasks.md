@@ -56,11 +56,11 @@ description: "Task list template for feature implementation"
 
 ### Implementation for User Story 1
 
-- [ ] T007 [P] [US1] Audit existing tokens in src/token/colors.css and src/token/typography.css
-- [ ] T008 [P] [US1] Scan all components in src/components/web/ for hardcoded values
-- [ ] T009 [P] [US1] Identify nomenclatura inconsistencies (--surface-table-header vs --color-surface-default)
-- [ ] T010 [US1] Generate gap analysis report comparing current vs required tokens
-- [ ] T011 [US1] Validate existing token usage in components via grep search
+- [x] T007 [P] [US1] Audit existing tokens in src/token/colors.css and src/token/typography.css
+- [x] T008 [P] [US1] Scan all components in src/components/web/ for hardcoded values
+- [x] T009 [P] [US1] Identify nomenclatura inconsistencies (--surface-table-header vs --color-surface-default)
+- [x] T010 [US1] Generate gap analysis report comparing current vs required tokens
+- [x] T011 [US1] Validate existing token usage in components via grep search
 
 **Checkpoint**: At this point, US1 should provide complete inventory of current state
 
