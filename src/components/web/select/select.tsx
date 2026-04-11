@@ -24,7 +24,10 @@ export function SelectNerux({
       <Label>{label}</Label>
       <Select.Trigger
         className={cn(
-          "border-[0.2px] rounded-lg",
+          "border",
+          "[border-width:var(--border-width-thin)]",
+          "[border-radius:var(--border-radius-lg)]",
+          "border-solid",
           "border-(--color-border-default)",
           "focus-within:border-(--color-primary-bg-default)",
           "hover:border-(--color-primary-bg-default)",
@@ -53,7 +56,7 @@ export function SelectNerux({
       </Select.Popover>
       {hasError ? (
         <FieldError>
-          <div className="flex items-center gap-1">
+          <div className="flex items-center gap-[var(--spacing-1)]">
             <IconNerux name="IconAlertTriangle" size="sm" color="error" />
             <TextNerux variant="error">{error}</TextNerux>
           </div>

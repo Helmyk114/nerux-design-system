@@ -74,14 +74,14 @@ description: "Task list template for feature implementation"
 
 ### Implementation for User Story 2
 
-- [ ] T012 [P] [US2] Update ButtonNerux component to use token references in src/components/web/button/button.tsx
-- [ ] T013 [P] [US2] Update InputNerux component to replace border-[0.2px], rounded-lg in src/components/web/input/input.tsx
-- [ ] T014 [P] [US2] Update CardNerux component styling in src/components/web/card/card.tsx
-- [ ] T015 [P] [US2] Update ModalNerux component in src/components/web/modal/modal.tsx
-- [ ] T016 [P] [US2] Update DrawerNerux component in src/components/web/drawer/drawer.tsx
-- [ ] T017 [P] [US2] Update remaining components (Table, Pagination, etc.) in src/components/web/
-- [ ] T018 [US2] Update all Storybook stories to use token-based CSS classes
-- [ ] T019 [US2] Verify no hardcoded Tailwind utilities remain in component files
+- [x] T012 [P] [US2] Update ButtonNerux component to use token references in src/components/web/button/button.tsx
+- [x] T013 [P] [US2] Update InputNerux component to replace border-[0.2px], rounded-lg in src/components/web/input/input.tsx
+- [x] T014 [P] [US2] Update CardNerux component styling in src/components/web/card/card.tsx
+- [x] T015 [P] [US2] Update ModalNerux component in src/components/web/modal/modal.tsx
+- [x] T016 [P] [US2] Update DrawerNerux component in src/components/web/drawer/drawer.tsx
+- [x] T017 [P] [US2] Update remaining components (Table, Pagination, etc.) in src/components/web/
+- [x] T018 [US2] Update all Storybook stories to use token-based CSS classes
+- [x] T019 [US2] Verify no hardcoded Tailwind utilities remain in component files
 
 **Checkpoint**: At this point, US2 should have complete token system with all components migrated
 
