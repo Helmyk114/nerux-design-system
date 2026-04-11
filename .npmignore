@@ -1,0 +1,35 @@
+# Source files (npm package only needs dist)
+src/
+tests/
+
+# Development files
+*.test.ts
+*.spec.ts
+*.stories.ts
+*.stories.tsx
+
+# Configuration and tooling
+vite.config.ts
+vitest.shims.d.ts
+eslint.config.js
+tsconfig.app.json
+index.html
+
+# Development directories
+storybook-static/
+dist-ssr/
+
+# Build/dev tools
+pnpm-lock.yaml
+.github/
+.vscode/
+.idea/
+
+# Documentation
+specs/
+README.md
+
+# Logs and temporary
+*.log
+.DS_Store
+*.tmp

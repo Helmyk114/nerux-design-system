@@ -28,7 +28,7 @@ description: "Task list template for feature implementation"
 
 **Purpose**: Understand current token state in production system
 
-- [ ] T001 Audit src/token/ and list all existing token files and defined tokens before making changes
+- [x] T001 Audit src/token/ and list all existing token files and defined tokens before making changes
 
 ---
 
@@ -38,11 +38,11 @@ description: "Task list template for feature implementation"
 
 **⚠️ IMPORTANT**: Add tokens to category-specific files in src/token/—create new files only if category file doesn't exist
 
-- [ ] T002 [P] Add spacing tokens (--spacing-xs through --spacing-xl) to src/token/spacing.css
-- [ ] T003 [P] Add border tokens (--border-width-thin, --border-radius-sm, etc.) to src/token/borders.css
-- [ ] T004 [P] Add shadow tokens (--shadow-sm through --shadow-xl) to src/token/shadows.css
-- [ ] T005 [P] Add transition tokens (--transition-default, etc.) to src/token/transitions.css
-- [ ] T006 Verify all new tokens have light and dark theme variants in their respective files
+- [x] T002 [P] Add spacing tokens (--spacing-xs through --spacing-xl) to src/token/spacing.css
+- [x] T003 [P] Add border tokens (--border-width-thin, --border-radius-sm, etc.) to src/token/borders.css
+- [x] T004 [P] Add shadow tokens (--shadow-sm through --shadow-xl) to src/token/shadows.css
+- [x] T005 [P] Add transition tokens (--transition-default, etc.) to src/token/transitions.css
+- [x] T006 Verify all new tokens have light and dark theme variants in their respective files
 
 **Checkpoint**: All missing token categories added; verify src/index.css imports all token files before proceeding with component refactoring
 
