@@ -21,7 +21,9 @@ export function SelectNerux({
       isRequired={props.required}
       isInvalid={hasError}
     >
-      <Label>{label}</Label>
+      <Label className={cn("text-(--color-primary-text-default)")}>
+        {label}
+      </Label>
       <Select.Trigger
         className={cn(
           "border",

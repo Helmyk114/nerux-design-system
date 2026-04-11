@@ -13,20 +13,25 @@
 @layer base {
   :root {
     /* Duration Tokens - measured in milliseconds */
-    --transition-instant: 0ms;        /* No delay - immediate */
-    --transition-fast: 100ms;         /* Quick interactions (hover, focus) */
-    --transition-base: 200ms;         /* Default transition (default) */
-    --transition-default: 200ms;      /* Alias for base */
-    --transition-mid: 300ms;          /* Moderate duration */
-    --transition-slow: 500ms;         /* Slow, noticeable transitions */
-    --transition-slower: 750ms;       /* Very slow transitions */
-    --transition-slowest: 1000ms;     /* Extended animations */
+    --transition-instant: 0ms; /* No delay - immediate */
+    --transition-fast: 100ms; /* Quick interactions (hover, focus) */
+    --transition-base: 200ms; /* Default transition (default) */
+    --transition-default: 200ms; /* Alias for base */
+    --transition-mid: 300ms; /* Moderate duration */
+    --transition-slow: 500ms; /* Slow, noticeable transitions */
+    --transition-slower: 750ms; /* Very slow transitions */
+    --transition-slowest: 1000ms; /* Extended animations */
 
     /* Easing Functions (CSS timing functions) */
-    --ease-linear: linear;                        /* Constant speed */
-    --ease-in: cubic-bezier(0.4, 0, 1, 1);       /* Slow start, fast end */
-    --ease-out: cubic-bezier(0, 0, 0.2, 1);      /* Fast start, slow end */
-    --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);/* Slow start and end, fast middle */
+    --ease-linear: linear; /* Constant speed */
+    --ease-in: cubic-bezier(0.4, 0, 1, 1); /* Slow start, fast end */
+    --ease-out: cubic-bezier(0, 0, 0.2, 1); /* Fast start, slow end */
+    --ease-in-out: cubic-bezier(
+      0.4,
+      0,
+      0.2,
+      1
+    ); /* Slow start and end, fast middle */
     --ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55); /* Bouncy effect */
 
     /* Composite Transitions (duration + easing) */
@@ -42,7 +47,8 @@
 
     /* Composite shorthand for common patterns */
     --transition-colors-base: all var(--transition-default) var(--ease-in-out);
-    --transition-transform-base: transform var(--transition-default) var(--ease-in-out);
+    --transition-transform-base: transform var(--transition-default)
+      var(--ease-in-out);
   }
 }
 

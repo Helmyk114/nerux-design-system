@@ -95,11 +95,11 @@ description: "Task list template for feature implementation"
 
 ### Implementation for User Story 3
 
-- [ ] T020 [P] [US3] Verify all tokens defined in both light and dark themes
-- [ ] T021 [P] [US3] Test theme switching in Storybook across all component stories
-- [ ] T022 [P] [US3] Validate contrast ratios for text colors in both themes
-- [ ] T023 [US3] Add automated theme switching tests to Storybook configuration
-- [ ] T024 [US3] Document theme-specific token adjustments (darker shadows in dark mode)
+- [x] T020 [P] [US3] Verify all tokens defined in both light and dark themes
+- [x] T021 [P] [US3] Test theme switching in Storybook across all component stories
+- [x] T022 [P] [US3] Validate contrast ratios for text colors in both themes
+- [x] T023 [US3] Add automated theme switching tests to Storybook configuration
+- [x] T024 [US3] Document theme-specific token adjustments (darker shadows in dark mode)
 
 **Checkpoint**: At this point, US3 should guarantee theme consistency
 
@@ -113,11 +113,11 @@ description: "Task list template for feature implementation"
 
 ### Implementation for User Story 4
 
-- [ ] T025 [P] [US4] Create token usage documentation in src/token/README.md
-- [ ] T026 [P] [US4] Add TypeScript type definitions for token values
-- [ ] T027 [P] [US4] Document component token dependencies in each component file
-- [ ] T028 [P] [US4] Create migration guide for deprecated token patterns
-- [ ] T029 [US4] Add token validation ESLint rules to prevent hardcoded values
+- [x] T025 [P] [US4] Create token usage documentation in src/token/README.md
+- [x] T026 [P] [US4] Add TypeScript type definitions for token values
+- [x] T027 [P] [US4] Document component token dependencies in each component file
+- [x] T028 [US4] Create migration guide for deprecated token patterns
+- [x] T029 [US4] Add token validation ESLint rules to prevent hardcoded values
 
 **Checkpoint**: At this point, US4 should provide complete documentation
 
@@ -127,13 +127,13 @@ description: "Task list template for feature implementation"
 
 **Purpose**: Final validation, testing, and quality assurance
 
-- [ ] T030 Run full Storybook build and verify no visual regressions
-- [ ] T031 [P] Execute ESLint across all component files to ensure no hardcoded values
-- [ ] T032 [P] Test TypeScript compilation with new token types
-- [ ] T033 [P] Validate build output contains all token definitions
-- [ ] T034 [P] Update package.json version for MINOR release (new tokens added)
-- [ ] T035 Create final validation checklist for token system completeness
-- [ ] T036 Document any remaining edge cases or known limitations
-- [ ] T037 Prepare release notes for token system completion
+- [x] T030 Run full Storybook build and verify no visual regressions
+- [x] T031 [P] Execute ESLint across all component files to ensure no hardcoded values
+- [x] T032 [P] Test TypeScript compilation with new token types
+- [x] T033 [P] Validate build output contains all token definitions
+- [x] T034 [P] Update package.json version for MINOR release (new tokens added)
+- [x] T035 Create final validation checklist for token system completeness
+- [x] T036 Document any remaining edge cases or known limitations
+- [x] T037 Prepare release notes for token system completion
 
 **Final Checkpoint**: All success criteria met, token system production-ready
