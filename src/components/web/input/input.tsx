@@ -31,7 +31,6 @@ export function InputNerux({
         name={props.name}
         isRequired={props.required}
         isDisabled={props.disabled}
-        onChange={props.onChange}
       >
         <Label>{props.name}</Label>
         <InputGroup
@@ -51,8 +50,10 @@ export function InputNerux({
           <InputGroup.Prefix>
             {startIcon && <IconNerux name={startIcon} size="sm" />}
           </InputGroup.Prefix>
-          <InputGroup.Input
+          <InputGroup.Input 
             placeholder={props.placeholder}
+            value={props.value}
+            onChange={props.onChange}
             className={cn(
               "text-(--color-primary-text-default)",
               hasError
