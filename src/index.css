@@ -4,6 +4,10 @@
 @import "./token/colors.css";
 @import "./token/heroui-theme.css";
 @import "./token/typography.css";
+@import "./token/spacing.css";
+@import "./token/borders.css";
+@import "./token/shadows.css";
+@import "./token/transitions.css";
 
 html,
 body,

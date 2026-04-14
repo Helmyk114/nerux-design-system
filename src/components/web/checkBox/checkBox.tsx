@@ -1,4 +1,4 @@
-import { Checkbox, Description, Label } from "@heroui/react";
+import { Checkbox, cn, Description, Label } from "@heroui/react";
 import type { CheckBoxProps } from "./checkBox.type";
 
 export function CheckBoxNerux({
@@ -19,7 +19,7 @@ export function CheckBoxNerux({
       isDisabled={disable}
       isInvalid={hasError}
     >
-      <Checkbox.Control>
+      <Checkbox.Control className={cn("bg-(--color-border-default)")}>
         <Checkbox.Indicator />
       </Checkbox.Control>
       <Checkbox.Content>
