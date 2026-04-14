@@ -1,0 +1,66 @@
+/**
+ * Border Tokens
+ * 
+ * Defines consistent border widths, radius values, and styles.
+ * Ensures pixel-perfect borders and rounded corners across all components.
+ * 
+ * Notes on border-[0.2px]:
+ * - INPUT component currently uses hardcoded `border-[0.2px]` - this token replaces it
+ * - Tailwind CSS v4 supports thin pseudo-pixel values
+ * - 0.2px provides a subtle, modern border appearance
+ */
+
+@layer base {
+  :root {
+    /* Border Widths */
+    --border-width-thin: 0.2px; /* Subtle borders (INPUT) */
+    --border-width-thin-alt: 0.5px; /* Alternative thin border */
+    --border-width-normal: 1px; /* Standard border */
+    --border-width-thick: 2px; /* Emphasis border */
+    --border-width-thicker: 4px; /* Heavy border */
+
+    /* Border Radius - smooth corners following 4px scale */
+    --border-radius-none: 0; /* No rounding */
+    --border-radius-xs: 0.125rem; /* 2px  - minimal rounding */
+    --border-radius-sm: 0.25rem; /* 4px  - small rounding */
+    --border-radius-md: 0.5rem; /* 8px  - standard rounding */
+    --border-radius-lg: 0.75rem; /* 12px - comfortable rounding */
+    --border-radius-xl: 1rem; /* 16px - generous rounding */
+    --border-radius-2xl: 1.5rem; /* 24px - large rounding (buttons, cards) */
+    --border-radius-full: 9999px; /* Pill/circle shapes */
+
+    /* Alias convenience tokens (match component patterns) */
+    --border-radius-sm-alt: 0.25rem; /* rounded-sm equivalent */
+    --border-radius-md-alt: 0.5rem; /* rounded-md equivalent */
+    --border-radius-lg-alt: 0.75rem; /* rounded-lg (INPUT uses this) */
+    --border-radius-xl-alt: 1rem; /* rounded-xl equivalent */
+
+    /* Border Styles */
+    --border-style-solid: solid;
+    --border-style-dashed: dashed;
+    --border-style-dotted: dotted;
+
+    /* Composite borders (shorthand convenience) */
+    --border-default: var(--border-width-normal) solid
+      var(--color-border-default);
+    --border-input: var(--border-width-thin) solid var(--color-border-default);
+  }
+}
+
+/**
+ * Theme-Specific Adjustments
+ * 
+ * Border widths are theme-agnostic, but border colors change with theme.
+ * Color references defer to --color-border-default which changes per theme.
+ */
+
+:root[data-theme="light"] {
+  /* Light theme inherits base border definitions */
+  /* Additional adjustments if needed */
+}
+
+:root[data-theme="dark"] {
+  /* Dark theme inherits base border definitions */
+  /* Dark backgrounds may require visual adjustment to borders */
+  /* Example: lighter border colors for visibility */
+}

@@ -1,6 +1,5 @@
 import "../src/index.css";
 import type { Preview } from "@storybook/react-vite";
-import { HeroUIProvider } from "@heroui/react";
 
 const preview: Preview = {
   globalTypes: {
@@ -22,14 +21,10 @@ const preview: Preview = {
     (Story, context) => {
       document.documentElement.setAttribute(
         "data-theme",
-        context.globals.theme
+        context.globals.theme,
       );
 
-      return (
-        <HeroUIProvider>
-          <Story />
-        </HeroUIProvider>
-      );
+      return <Story />;
     },
   ],
 

@@ -1,0 +1,26 @@
+# Dependencies
+node_modules/
+dist/
+build/
+
+# Build output
+dist-ssr/
+storybook-static/
+
+# Logs
+*.log
+logs/
+
+# IDE
+.vscode/
+.idea/
+
+# Tests
+coverage/
+*.test.ts
+*.spec.ts
+
+# Temporary
+.DS_Store
+*.tmp
+*.swp

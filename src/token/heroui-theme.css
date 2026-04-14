@@ -1,0 +1,51 @@
+:root[data-theme="light"] {
+  --accent: var(--color-primary-bg-default);
+  --accent-foreground: #ffffff; /* texto sobre el color de accent */
+  --focus: var(--accent);
+  
+  --success: var(--color-exito);
+  --success-foreground: var(--color-primary-text-default);
+
+  --warning: var(--color-advertencia);
+  --warning-foreground: var(--color-primary-text-default);
+
+  --danger: var(--color-error);
+  --danger-foreground: #ffffff;
+
+  --field-background: #EDEDED;
+  --field-foreground: var(--color-primary-text-default);
+  --field-placeholder: var(--color-primary-text-disabled);
+  --field-border: var(--color-border-default);
+
+  --border: var(--color-border-default);
+  --separator: var(--color-border-default);
+  --link: var(--color-primary-bg-default);
+  --focus: var(--color-primary-bg-default);
+  --accent: var(--color-primary-bg-default);
+}
+
+:root[data-theme="dark"] {
+  --accent: var(--color-primary-bg-default);
+  --accent-foreground: #ffffff;
+  --focus: var(--accent);
+
+  --success: var(--color-exito);
+  --success-foreground: var(--color-primary-text-default);
+
+  --warning: var(--color-advertencia);
+  --warning-foreground: var(--color-primary-text-default);
+
+  --danger: var(--color-error);
+  --danger-foreground: #ffffff;
+
+  --field-background: #121212;
+  --field-foreground: var(--color-primary-text-default);
+  --field-placeholder: var(--color-primary-text-disabled);
+  --field-border: var(--color-border-default);
+
+  --border: var(--color-border-default);
+  --separator: var(--color-border-default);
+  --link: var(--color-primary-bg-default);
+  --focus: var(--color-primary-bg-default);
+  --accent: var(--color-primary-bg-default);
+}
