@@ -1,0 +1,94 @@
+/**
+ * Transition Tokens
+ * 
+ * Defines animation timings, easing functions, and transition durations.
+ * Ensures consistent, smooth animations across the design system.
+ * 
+ * Categories:
+ * - Duration: How long animations take
+ * - Easing: Animation timing functions
+ * - Composite: Pre-configured transition shorthand
+ */
+
+@layer base {
+  :root {
+    /* Duration Tokens - measured in milliseconds */
+    --transition-instant: 0ms; /* No delay - immediate */
+    --transition-fast: 100ms; /* Quick interactions (hover, focus) */
+    --transition-base: 200ms; /* Default transition (default) */
+    --transition-default: 200ms; /* Alias for base */
+    --transition-mid: 300ms; /* Moderate duration */
+    --transition-slow: 500ms; /* Slow, noticeable transitions */
+    --transition-slower: 750ms; /* Very slow transitions */
+    --transition-slowest: 1000ms; /* Extended animations */
+
+    /* Easing Functions (CSS timing functions) */
+    --ease-linear: linear; /* Constant speed */
+    --ease-in: cubic-bezier(0.4, 0, 1, 1); /* Slow start, fast end */
+    --ease-out: cubic-bezier(0, 0, 0.2, 1); /* Fast start, slow end */
+    --ease-in-out: cubic-bezier(
+      0.4,
+      0,
+      0.2,
+      1
+    ); /* Slow start and end, fast middle */
+    --ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55); /* Bouncy effect */
+
+    /* Composite Transitions (duration + easing) */
+    --transition-fast-in-out: var(--transition-fast) var(--ease-in-out);
+    --transition-default-in-out: var(--transition-default) var(--ease-in-out);
+    --transition-slow-in-out: var(--transition-slow) var(--ease-in-out);
+
+    /* Transition Properties commonly used */
+    --transition-colors: color, background-color, border-color;
+    --transition-transform: transform;
+    --transition-opacity: opacity;
+    --transition-all: all;
+
+    /* Composite shorthand for common patterns */
+    --transition-colors-base: all var(--transition-default) var(--ease-in-out);
+    --transition-transform-base: transform var(--transition-default)
+      var(--ease-in-out);
+  }
+}
+
+/**
+ * Usage Examples
+ * 
+ * Simple color transition:
+ *   transition: var(--transition-default-in-out);
+ * 
+ * Hover effect on button:
+ *   button {
+ *     transition: var(--transition-colors-base);
+ *   }
+ *   button:hover {
+ *     background-color: var(--color-primary-bg-hover);
+ *   }
+ * 
+ * Transform animation:
+ *   .animated {
+ *     transition: var(--transition-transform-base);
+ *   }
+ *   .animated:hover {
+ *     transform: scale(1.05);
+ *   }
+ * 
+ * Fast interaction (e.g., checkbox toggle):
+ *   input[type="checkbox"] {
+ *     transition: var(--transition-fast-in-out);
+ *   }
+ * 
+ * Extended animation:
+ *   .loading {
+ *     animation: spin var(--transition-slowest) var(--ease-linear) infinite;
+ *   }
+ */
+
+/**
+ * Notes on Out-of-Scope
+ * 
+ * Keyframe animations (like @keyframes spin) are out of scope for this token system.
+ * Components should define their own @keyframes as needed.
+ * This token system provides timing and easing primitives to make keyframes consistent.
+ */
