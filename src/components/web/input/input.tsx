@@ -25,18 +25,18 @@ export function InputNerux({
     type === "password" ? (isVisible ? "text" : "password") : type;
 
   return (
-    <div className="nerux-focus--brand">
       <TextField
         type={inputType}
         isInvalid={hasError}
         name={props.name}
         isRequired={props.required}
         isDisabled={props.disabled}
+        onChange={props.onChange}
       >
         <Label>{props.name}</Label>
         <InputGroup
           className={cn(
-            "border" /* width and style in separate classes */,
+            "border",
             "[border-width:var(--border-width-thin)]",
             "[border-radius:var(--border-radius-lg)]",
             "border-solid",
@@ -90,6 +90,5 @@ export function InputNerux({
           </FieldError>
         ) : null}
       </TextField>
-    </div>
   );
 }
