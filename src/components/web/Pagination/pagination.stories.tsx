@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react-vite";
 import { PaginationNerux } from "./pagination";
 import { useState } from "react";
 import type { PaginationNeruxProps } from "./pagination.types";
