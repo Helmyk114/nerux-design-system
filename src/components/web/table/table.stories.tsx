@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react-vite";
 import { data, TableContentNerux, TableNerux, users } from "./index";
 
 const meta: Meta = {

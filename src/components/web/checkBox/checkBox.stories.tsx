@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react-vite";
 import { CheckBoxNerux } from "./checkBox";
 import { useState } from "react";
 import type { CheckBoxProps } from "./checkBox.type";
@@ -36,7 +36,7 @@ const CheckBoxInteractive = (args: CheckBoxProps) => {
         value={isSelected}
         onChange={(val) => setIsSelected(val)}
       />
-      <p className="mt-2 text-xs text-gray-500">
+      <p className="mt-2 text-xs text-(--nerux-color-text-secondary)">
         Estado: {isSelected ? "Seleccionado" : "No seleccionado"}
       </p>
     </div>

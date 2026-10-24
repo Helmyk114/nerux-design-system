@@ -9,7 +9,7 @@ import tseslint from "typescript-eslint";
 import { defineConfig, globalIgnores } from "eslint/config";
 
 export default defineConfig([
-  globalIgnores(["dist"]),
+  globalIgnores(["dist", "storybook-static", "coverage", "node_modules"]),
   {
     files: ["**/*.{ts,tsx}"],
     extends: [
@@ -39,6 +39,18 @@ export default defineConfig([
         "error",
         { argsIgnorePattern: "^_" },
       ],
+    },
+  },
+  // Token source, generator and generated files define literal values by design.
+  {
+    files: [
+      "src/token/source/**/*.ts",
+      "src/token/generated/**/*.ts",
+      "scripts/**/*.ts",
+    ],
+    rules: {
+      "no-restricted-syntax": "off",
+      "no-console": "off",
     },
   },
   // Storybook-specific configuration

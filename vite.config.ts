@@ -24,13 +24,16 @@ export default defineConfig({
       insertTypesEntry: true,
       rollupTypes: false,
       outDir: "dist",
-      exclude: [ 
+      exclude: [
+        "**/*.stories.ts",
         "**/*.stories.tsx",
+        "**/*.test.ts",
         "**/*.test.tsx",
+        "**/*.spec.ts",
         "**/*.spec.tsx",
-        "vite.config.ts",  // ← AÑADE ESTO
+        "vite.config.ts",
         "**/vitest.setup.ts",
-        "**/storybook/**"
+        "**/storybook/**",
       ],
       include: ["src"]
     }),
@@ -57,6 +60,18 @@ export default defineConfig({
 
   test: {
     projects: [
+      {
+        extends: true,
+        test: {
+          name: "unit",
+          environment: "node",
+          include: [
+            "src/**/*.test.ts",
+            "src/**/*.test.tsx",
+            "scripts/**/*.test.ts",
+          ],
+        },
+      },
       {
         extends: true,
         plugins: [

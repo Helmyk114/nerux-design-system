@@ -1,5 +1,5 @@
 // src/components/Select/select.stories.tsx
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react-vite";
 import { useState } from "react";
 import { states } from "./data.mock";
 import { SelectNerux } from "./select";
@@ -39,7 +39,7 @@ const SelectInteractive = (args: SelectProps) => {
         value={val}
         onChange={(newVal) => setVal(newVal)}
       />
-      <p className="mt-4 text-xs text-slate-500 font-mono">
+      <p className="mt-4 text-xs text-(--nerux-color-text-secondary) font-mono">
         Valor seleccionado: {val ?? "null"}
       </p>
     </div>

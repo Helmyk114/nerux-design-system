@@ -50,6 +50,7 @@ export function PaginationNerux({
       <Pagination.Content>
         <Pagination.Item>
           <Pagination.Previous
+            aria-label="Página anterior"
             isDisabled={currentPage === 1}
             onPress={() => onChange(currentPage - 1)}
           >
@@ -76,6 +77,7 @@ export function PaginationNerux({
 
         <Pagination.Item>
           <Pagination.Next
+            aria-label="Página siguiente"
             isDisabled={currentPage === totalPages || totalPages === 0}
             onPress={() => onChange(currentPage + 1)}
           >

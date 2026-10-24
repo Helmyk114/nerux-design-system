@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react-vite";
 import { ButtonNerux } from "./button";
 
 const meta: Meta<typeof ButtonNerux> = {
