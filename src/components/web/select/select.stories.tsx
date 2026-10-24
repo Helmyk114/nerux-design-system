@@ -39,7 +39,7 @@ const SelectInteractive = (args: SelectProps) => {
         value={val}
         onChange={(newVal) => setVal(newVal)}
       />
-      <p className="mt-4 text-xs text-slate-500 font-mono">
+      <p className="mt-4 text-xs text-(--nerux-color-text-secondary) font-mono">
         Valor seleccionado: {val ?? "null"}
       </p>
     </div>

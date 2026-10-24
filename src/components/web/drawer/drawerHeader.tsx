@@ -3,7 +3,11 @@ import type { ComponentProps } from "react";
 
 export function DrawerHeaderNerux({
   children,
-  ...prop
+  ...props
 }: ComponentProps<typeof Drawer.Header>) {
-  return <Drawer.Header {...prop}>{children}</Drawer.Header>;
+  return (
+    <Drawer.Header {...props}>
+      <Drawer.Heading>{children}</Drawer.Heading>
+    </Drawer.Header>
+  );
 }
