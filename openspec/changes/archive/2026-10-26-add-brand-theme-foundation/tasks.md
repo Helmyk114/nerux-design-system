@@ -67,6 +67,6 @@
 - [x] 8.2 Ejecutar `pnpm build`, `pnpm lint` y la suite de tests sin errores.
 - [x] 8.3 Ejecutar `pnpm build-storybook` y revisar la matriz tema × marca.
 - [x] 8.4 Crear un workflow de CI que ejecute `pnpm lint`, `pnpm build`, `pnpm test` y `pnpm build-storybook` en pull requests y en `master`.
-- [ ] 8.5 Configurar ese workflow como gate obligatorio para merge y para publicar. Requiere activar branch protection para el check `Verify` desde la administración del repositorio.
+- [x] 8.5 Configurar ese workflow como gate obligatorio para merge y para publicar (branch protection activada para el check `Verify`).
 - [x] 8.6 Actualizar la versión a `2.0.0` y preparar las notas de release.
 - [x] 8.7 Documentar el procedimiento de rollback a la versión anterior.
