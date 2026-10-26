@@ -171,6 +171,16 @@ const contrastPairs: ContrastPair[] = [
     foreground: "#bfdbfe",
     background: "#172554",
   },
+  {
+    label: "danger-solid-fg/danger-solid-bg (light)",
+    foreground: "#ffffff",
+    background: "#b91c1c",
+  },
+  {
+    label: "danger-solid-fg/danger-solid-bg (dark)",
+    foreground: "#0f0d15",
+    background: "#f87171",
+  },
 ];
 
 const spacingAliases = [

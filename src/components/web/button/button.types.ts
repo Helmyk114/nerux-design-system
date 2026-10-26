@@ -1,13 +1,43 @@
-import type { ButtonProps as HeroButtonProps } from "@heroui/react";
-import type { IconName } from "../icons/icon.type";
+import type { ComponentPropsWithRef, ReactNode } from "react";
+import type { Button as HeroButton } from "@heroui/react";
 
-export type ButtonColor = "primary" | "disabled" | "danger" | "neutral";
-type ButtonSize = "sm" | "md" | "lg";
+type HeroButtonProps = ComponentPropsWithRef<typeof HeroButton>;
 
-export interface ButtonProps extends Omit<HeroButtonProps , "variant" | "color" | "size" | "startIcon" | "endIcon"> {
-  color: ButtonColor;
+type LinkOnlyProps =
+  | "href"
+  | "target"
+  | "rel"
+  | "download"
+  | "hrefLang"
+  | "ping"
+  | "referrerPolicy";
+
+export type ButtonVariant =
+  | "primary"
+  | "secondary"
+  | "tertiary"
+  | "outline"
+  | "ghost"
+  | "danger"
+  | "danger-soft";
+
+export type ButtonSize = "sm" | "md" | "lg";
+
+export interface ButtonProps
+  extends Omit<
+    HeroButtonProps,
+    | "variant"
+    | "size"
+    | "children"
+    | "isPending"
+    | "color"
+    | "render"
+    | LinkOnlyProps
+  > {
+  variant?: ButtonVariant;
   size?: ButtonSize;
-  startIcon?: IconName;
-  endIcon?: IconName;
-  type?: "button" | "submit" | "reset";
+  isLoading?: boolean;
+  startContent?: ReactNode;
+  endContent?: ReactNode;
+  children?: ReactNode;
 }

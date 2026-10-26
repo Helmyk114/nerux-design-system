@@ -103,7 +103,7 @@ Mapa por variante:
 | Variante | `--button-bg` | `--button-bg-hover` | `--button-bg-pressed` | `--button-fg` |
 |---|---|---|---|---|
 | `primary` | `color-primary-bg-default` | `color-primary-bg-hover` | `color-primary-bg-active` | `color-primary-foreground` |
-| `secondary` | `color-secondary-bg-default` | `color-secondary-bg-hover` | `color-secondary-bg-active` | `color-secondary-text-default` |
+| `secondary` | `color-mix(secondary-bg-default 80%, text-default)` | `color-mix(secondary-bg-default 72%, text-default)` | `color-mix(secondary-bg-default 64%, text-default)` | `color-secondary-text-default` |
 | `tertiary` | `color-surface-secondary` | `color-surface-hover` | `color-surface-active` | `color-text-default` |
 | `outline` | `transparent` | `color-surface-hover` | `color-surface-active` | `color-text-default` |
 | `ghost` | `transparent` | `color-surface-hover` | `color-surface-active` | `color-text-default` |
@@ -115,6 +115,7 @@ Todos los nombres llevan el prefijo `--nerux-`. `outline` agrega `border-color: 
 Decisiones puntuales:
 
 - `danger` y `danger-soft` no tienen tokens de hover/pressed. Se derivan con `color-mix(in oklch, …)` mezclando con `--nerux-color-text-default`, que es oscuro en light y claro en dark: el hover oscurece en light y aclara en dark, sin `dark:` ni valores hardcodeados.
+- `secondary` parte de `color-secondary-bg-default` y se mezcla con `color-text-default` al 80/72/64 %. El token cyan-600 sobre blanco solo alcanza 3.68:1, por debajo de AA; la mezcla oscurece el fondo en light y lo aclara en dark, y conserva `color-secondary-text-default` como foreground. No se modifica ningún token del pipeline.
 - El estado `disabled` usa `status-disabled` de HeroUI (opacidad + `pointer-events: none`), no el token `color-primary-bg-disabled`. Mezclar ambos duplicaría el apagado. Los tokens de disabled siguen disponibles para otros componentes.
 - El anillo de foco no se redefine: HeroUI usa `--focus`, ya mapeado a `--nerux-color-focus`.
 
@@ -137,7 +138,6 @@ Alternativa descartada: un booleano `asChild`/`render` que permita `<a>`; reabre
 ```tsx
 <HeroButton
   isPending={isLoading}
-  aria-busy={isLoading || undefined}
   ...
 >
   {isLoading ? <Spinner size="sm" color="current" /> : startContent}
@@ -147,7 +147,7 @@ Alternativa descartada: un booleano `asChild`/`render` que permita `<a>`; reabre
 ```
 
 - `isLoading` → `isPending` de HeroUI: activa `data-pending`, `status-pending` y bloquea la interacción.
-- `aria-busy="true"` se agrega explícitamente porque React Aria solo emite `data-pending`.
+- `aria-busy="true"` se aplica explícitamente sobre el `<button>` resuelto mediante la `ref` fusionada y un `useEffect`, porque `filterDOMProps` de React Aria descarta `aria-busy` (solo permite `aria-label`, `aria-labelledby`, `aria-describedby` y `aria-details`).
 - El `Spinner` de HeroUI ya expone `data-slot="spinner"`, `role="status"` y `aria-label="Loading"`; no se inventan atributos para tests.
 - Precedencia: mientras carga, el `Spinner` ocupa el lugar de `startContent` para no mostrar dos indicadores iniciales. `endContent` se mantiene.
 - `isDisabled` y `isLoading` son independientes; si ambos están activos, HeroUI aplica disabled y pending.
@@ -160,7 +160,7 @@ Se pasan como hijos directos del botón, sin wrappers: `startContent`, `children
 
 - `ref` se reenvía a HeroUI Button, que lo reenvía al `<button>` de React Aria.
 - El resto de props se propaga después de las props controladas por el DS, salvo las de enlace (D4) y `isPending`.
-- `aria-busy` se calcula como `isLoading || undefined`; si el consumidor pasa otro valor, `isLoading` manda.
+- `aria-busy` se sincroniza con `isLoading` en el `<button>` resuelto (`setAttribute`/`removeAttribute`); si el consumidor pasa otro valor, `isLoading` manda.
 - `type` mantiene default `"button"` para evitar submits accidentales.
 - `className` se compone con `clsx(buttonColorVariants[variant], className)`: el consumidor puede agregar layout sin perder los colores.
 
@@ -174,7 +174,7 @@ Bloques:
    - Extraer todos los `var(--…)` del `className` y exigir que cada uno empiece con `--nerux-`.
    - Rechazar cualquier `--color-*` legacy.
    - Verificar que cada token referenciado esté declarado en `src/token/generated/semantic.css` (sin tokens huérfanos).
-   - Contraste: no se recalcula desde CSS (jsdom no resuelve cadenas `var()`); se apoya en `validateContrast()` y en la derivación de marca. Si el par sólido de `danger` no está en `contrastPairs`, se agrega allí con los valores por defecto, sin crear tokens.
+   - Contraste: no se recalcula desde CSS (jsdom no resuelve cadenas `var()`); se apoya en la derivación de marca y en `contrastPairs`. Si el par sólido de `danger` no está en `contrastPairs`, se agrega allí con los valores por defecto, sin crear tokens. `validateContrast()` se ejecuta en la suite de tokens (node), no en jsdom: `scripts/build-tokens.ts` resuelve rutas con `import.meta.url`, que no es `file:` bajo jsdom. En `button.test.tsx` los pares registrados se validan con `contrastRatio`.
 2. **Cero `href`**
    - `tagName === "BUTTON"`, `hasAttribute("href") === false`.
    - Inyectar `href` por cast y comprobar que igualmente no llega al DOM.
