@@ -18,6 +18,9 @@ export function CheckBoxNerux({
       onChange={onChange}
       isDisabled={disable}
       isInvalid={hasError}
+      className={
+        hasError ? "[--danger:var(--nerux-color-danger-text)]" : undefined
+      }
     >
       <Checkbox.Control className={cn("bg-(--color-border-default)")}>
         <Checkbox.Indicator />

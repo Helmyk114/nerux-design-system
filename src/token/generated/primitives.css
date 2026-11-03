@@ -41,12 +41,14 @@
   --nerux-line-height-tight: 1.2;
   --nerux-primitive-color-amber-200: #fde68a;
   --nerux-primitive-color-amber-400: #fbbf24;
+  --nerux-primitive-color-amber-50: #fffbeb;
   --nerux-primitive-color-amber-700: #b45309;
   --nerux-primitive-color-amber-900: #78350f;
   --nerux-primitive-color-amber-950: #451a03;
   --nerux-primitive-color-blue-200: #bfdbfe;
   --nerux-primitive-color-blue-300: #93c5fd;
   --nerux-primitive-color-blue-400: #60a5fa;
+  --nerux-primitive-color-blue-50: #eff6ff;
   --nerux-primitive-color-blue-600: #2563eb;
   --nerux-primitive-color-blue-900: #1e3a8a;
   --nerux-primitive-color-blue-950: #172554;
@@ -57,6 +59,7 @@
   --nerux-primitive-color-green-200: #bbf7d0;
   --nerux-primitive-color-green-300: #86efac;
   --nerux-primitive-color-green-400: #4ade80;
+  --nerux-primitive-color-green-50: #f0fdf4;
   --nerux-primitive-color-green-700: #15803d;
   --nerux-primitive-color-green-900: #14532d;
   --nerux-primitive-color-green-950: #052e16;
@@ -76,6 +79,7 @@
   --nerux-primitive-color-red-200: #fecaca;
   --nerux-primitive-color-red-300: #fca5a5;
   --nerux-primitive-color-red-400: #f87171;
+  --nerux-primitive-color-red-50: #fef2f2;
   --nerux-primitive-color-red-600: #dc2626;
   --nerux-primitive-color-red-700: #b91c1c;
   --nerux-primitive-color-red-900: #7f1d1d;

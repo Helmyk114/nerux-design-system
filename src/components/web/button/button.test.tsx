@@ -355,9 +355,9 @@ describe("accesibilidad y estados", () => {
 });
 
 describe("contraste", () => {
-  it("registra el par sólido de danger en light y dark", () => {
+  it("registra el par de contraste de danger en light y dark", () => {
     const pairs = semantic.contrastPairs.filter((pair) =>
-      pair.label.startsWith("danger-solid"),
+      pair.label.startsWith("danger-foreground"),
     );
 
     expect(pairs).toHaveLength(2);

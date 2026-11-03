@@ -31,6 +31,9 @@ export function InputNerux({
         name={props.name}
         isRequired={props.required}
         isDisabled={props.disabled}
+        className={
+          hasError ? "[--danger:var(--nerux-color-danger-text)]" : undefined
+        }
       >
         <Label>{props.name}</Label>
         <InputGroup
@@ -57,7 +60,7 @@ export function InputNerux({
             className={cn(
               "text-(--color-primary-text-default)",
               hasError
-                ? "text-(--color-error)"
+                ? "text-(--color-error-text-default)"
                 : "text-(--color-primary-text-default)",
             )}
           />

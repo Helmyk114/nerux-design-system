@@ -40,7 +40,7 @@ const danger = [
   "[--button-bg:var(--nerux-color-danger)]",
   "[--button-bg-hover:color-mix(in_oklch,var(--nerux-color-danger)_88%,var(--nerux-color-text-default))]",
   "[--button-bg-pressed:color-mix(in_oklch,var(--nerux-color-danger)_78%,var(--nerux-color-text-default))]",
-  "[--button-fg:var(--nerux-color-text-inverse)]",
+  "[--button-fg:var(--nerux-color-danger-foreground)]",
 ].join(" ");
 
 const dangerSoft = [

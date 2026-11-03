@@ -20,6 +20,9 @@ export function SelectNerux({
       isDisabled={props.disabled}
       isRequired={props.required}
       isInvalid={hasError}
+      className={
+        hasError ? "[--danger:var(--nerux-color-danger-text)]" : undefined
+      }
     >
       <Label className={cn("text-(--color-primary-text-default)")}>
         {label}

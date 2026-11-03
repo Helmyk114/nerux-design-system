@@ -2,7 +2,9 @@
 
 :root {
   --nerux-color-border-focus: var(--nerux-brand-focus-ring);
+  --nerux-color-danger-foreground: var(--nerux-color-text-inverse);
   --nerux-color-focus: var(--nerux-brand-focus-ring);
+  --nerux-color-info-foreground: var(--nerux-color-text-inverse);
   --nerux-color-link: var(--nerux-brand-base);
   --nerux-color-primary-bg-active: var(--nerux-brand-active);
   --nerux-color-primary-bg-default: var(--nerux-brand-base);
@@ -10,6 +12,8 @@
   --nerux-color-primary-bg-hover: var(--nerux-brand-hover);
   --nerux-color-primary-foreground: var(--nerux-brand-foreground);
   --nerux-color-primary-foreground-disabled: var(--nerux-color-text-disabled);
+  --nerux-color-success-foreground: var(--nerux-color-text-inverse);
+  --nerux-color-warning-foreground: var(--nerux-color-text-inverse);
 }
 
 :root,
@@ -19,12 +23,12 @@
   --nerux-color-bg: var(--nerux-primitive-color-neutral-50);
   --nerux-color-border-default: var(--nerux-primitive-color-neutral-200);
   --nerux-color-border-hover: var(--nerux-primitive-color-neutral-300);
-  --nerux-color-danger: var(--nerux-primitive-color-red-700);
-  --nerux-color-danger-bg: var(--nerux-primitive-color-red-200);
+  --nerux-color-danger: var(--nerux-primitive-color-red-600);
+  --nerux-color-danger-bg: var(--nerux-primitive-color-red-50);
   --nerux-color-danger-text: var(--nerux-primitive-color-red-900);
   --nerux-color-disabled-bg-default: var(--nerux-primitive-color-neutral-200);
   --nerux-color-info: var(--nerux-primitive-color-blue-600);
-  --nerux-color-info-bg: var(--nerux-primitive-color-blue-200);
+  --nerux-color-info-bg: var(--nerux-primitive-color-blue-50);
   --nerux-color-info-text: var(--nerux-primitive-color-blue-900);
   --nerux-color-neutral-bg-default: var(--nerux-primitive-color-neutral-100);
   --nerux-color-secondary-bg-active: color-mix(in oklch, var(--nerux-primitive-color-cyan-600) 78%, black);
@@ -34,7 +38,7 @@
   --nerux-color-secondary-text-default: var(--nerux-primitive-color-neutral-0);
   --nerux-color-secondary-text-hover: var(--nerux-primitive-color-neutral-0);
   --nerux-color-success: var(--nerux-primitive-color-green-700);
-  --nerux-color-success-bg: var(--nerux-primitive-color-green-200);
+  --nerux-color-success-bg: var(--nerux-primitive-color-green-50);
   --nerux-color-success-text: var(--nerux-primitive-color-green-900);
   --nerux-color-surface-active: var(--nerux-primitive-color-neutral-200);
   --nerux-color-surface-default: var(--nerux-primitive-color-neutral-0);
@@ -46,7 +50,7 @@
   --nerux-color-text-inverse: var(--nerux-primitive-color-neutral-0);
   --nerux-color-text-secondary: var(--nerux-primitive-color-neutral-700);
   --nerux-color-warning: var(--nerux-primitive-color-amber-700);
-  --nerux-color-warning-bg: var(--nerux-primitive-color-amber-200);
+  --nerux-color-warning-bg: var(--nerux-primitive-color-amber-50);
   --nerux-color-warning-text: var(--nerux-primitive-color-amber-900);
   --nerux-shadow-2xl: 0 25px 50px rgba(0, 0, 0, 0.15);
   --nerux-shadow-inner: inset 0 2px 4px rgba(0, 0, 0, 0.05);

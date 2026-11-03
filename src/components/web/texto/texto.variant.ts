@@ -13,7 +13,7 @@ export const textVariants: Record<TextVariant, string> = {
   subtitle: `font-[var(--font-weight-medium)] text-(color:--color-primary-text-default) text-(size:--font-size-subtitle)`,
   body: `font-[var(--font-weight-regular)] text-(color:--color-primary-text-default) text-(size:--font-size-body)`,
   caption: `font-[var(--font-weight-regular)] text-(color:--color-primary-text-default) text-(size:--font-size-caption)`,
-  error: `font-[var(--font-weight-light)] text-[var(--color-error)]`,
+  error: `font-[var(--font-weight-light)] text-[var(--color-error-text-default)]`,
 };
 
 export const weightVariants: Record<WeightVariant, string> = {
@@ -27,7 +27,7 @@ export const weightVariants: Record<WeightVariant, string> = {
 export const colorVariants: Record<ColorVariant, string> = {
   primary: `text-(color:--color-primary-text-default)`,
   secondary: `text-(color:--color-secondary-text-default)`,
-  error: `text-(color:--color-error)`,
+  error: `text-(color:--color-error-text-default)`,
   success: `text-(color:--color-success)`,
   warning: `text-(color:--color-warning)`,
 }
