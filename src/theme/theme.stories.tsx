@@ -21,6 +21,17 @@ const swatches = [
   { label: "Foreground", value: "var(--nerux-brand-foreground)" },
 ];
 
+const semanticGroups = [
+  { label: "Success", token: "success" },
+  { label: "Warning", token: "warning" },
+  { label: "Danger", token: "danger" },
+  { label: "Info", token: "info" },
+] as const;
+
+function semanticValue(token: string, suffix = "") {
+  return `var(--nerux-color-${token}${suffix})`;
+}
+
 function ThemePanel() {
   const { theme, resolvedTheme, setTheme, brand } = useNeruxTheme();
 
@@ -72,6 +83,32 @@ function ThemePanel() {
           </div>
         ))}
       </div>
+
+      <div className="flex flex-col gap-2 border-t border-(--nerux-color-border-default) pt-4">
+        <p className="text-xs uppercase tracking-wide text-(--nerux-color-text-secondary)">
+          Semantic colors
+        </p>
+        <div className="grid grid-cols-2 gap-2">
+          {semanticGroups.map((group) => (
+            <div
+              key={group.token}
+              className="flex items-center gap-2 text-xs text-(--nerux-color-text-secondary)"
+            >
+              <span className="flex overflow-hidden rounded-full border border-(--nerux-color-border-default)">
+                <span
+                  className="h-4 w-4"
+                  style={{ background: semanticValue(group.token) }}
+                />
+                <span
+                  className="h-4 w-4"
+                  style={{ background: semanticValue(group.token, "-bg") }}
+                />
+              </span>
+              {group.label}
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
   );
 }
@@ -92,6 +129,69 @@ function BrandAssets() {
         style={{ backgroundImage: "var(--nerux-brand-favicon)" }}
       />
     </div>
+  );
+}
+
+function SemanticPalette() {
+  const { resolvedTheme } = useNeruxTheme();
+
+  return (
+    <section
+      aria-label="Nerux semantic colors"
+      className="flex w-full max-w-2xl flex-col gap-4 rounded-xl border border-(--nerux-color-border-default) bg-(--nerux-color-surface-default) p-5 text-(--nerux-color-text-default)"
+    >
+      <header>
+        <p className="text-xs uppercase tracking-wide text-(--nerux-color-text-secondary)">
+          Semantic palette
+        </p>
+        <p className="text-lg font-semibold">
+          Success · Warning · Danger · Info
+        </p>
+        <p className="text-sm text-(--nerux-color-text-secondary)">
+          Resolved theme: {resolvedTheme}
+        </p>
+      </header>
+
+      <div className="grid gap-3 sm:grid-cols-2">
+        {semanticGroups.map((group) => (
+          <article
+            key={group.token}
+            className="flex flex-col gap-2 rounded-lg border border-(--nerux-color-border-default) p-3"
+          >
+            <div className="flex items-baseline justify-between gap-2">
+              <p className="text-sm font-medium">{group.label}</p>
+              <code className="text-[10px] text-(--nerux-color-text-secondary)">
+                --nerux-color-{group.token}
+              </code>
+            </div>
+            <div className="grid grid-cols-2 gap-2">
+              <div
+                className="flex h-16 flex-col justify-between rounded-md p-2"
+                style={{
+                  background: semanticValue(group.token),
+                  color: semanticValue(group.token, "-foreground"),
+                }}
+              >
+                <span className="text-[10px] uppercase tracking-wide">
+                  Default
+                </span>
+                <span className="text-sm font-semibold">Aa</span>
+              </div>
+              <div
+                className="flex h-16 flex-col justify-between rounded-md border border-(--nerux-color-border-default) p-2"
+                style={{
+                  background: semanticValue(group.token, "-bg"),
+                  color: semanticValue(group.token, "-text"),
+                }}
+              >
+                <span className="text-[10px] uppercase tracking-wide">bg</span>
+                <span className="text-sm font-semibold">Aa</span>
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
   );
 }
 
@@ -138,6 +238,17 @@ export const CustomBrand: Story = {
       <div className="flex flex-col items-center gap-6">
         <ThemePanel />
         <BrandAssets />
+      </div>
+    </NeruxProvider>
+  ),
+};
+
+export const SemanticColors: Story = {
+  render: () => (
+    <NeruxProvider defaultTheme="light">
+      <div className="flex flex-col items-center gap-6">
+        <ThemePanel />
+        <SemanticPalette />
       </div>
     </NeruxProvider>
   ),
