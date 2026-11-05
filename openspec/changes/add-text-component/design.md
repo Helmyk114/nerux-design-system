@@ -22,7 +22,7 @@ Restricciones relevantes del repositorio:
 **Non-Goals:**
 
 - Markdown, texto enriquecido, internacionalización, truncamiento multilínea (`line-clamp`) o animaciones tipográficas.
-- Agregar o modificar tokens del pipeline (los huecos detectados se resuelven con los tokens existentes y quedan como open questions).
+- Agregar tokens fuera de los dos tokens de texto necesarios para cumplir AA (`--nerux-color-text-muted` y `--nerux-color-brand-text`).
 - Cambiar `token-pipeline`, `brand-theming` o `theme-runtime`.
 - Introducir `asChild`/Slot, `forwardRef` legacy (React 18) ni dependencias nuevas.
 
@@ -86,11 +86,11 @@ export type TextProps<T extends ElementType = "p"> = TextOwnProps & {
 
 Cada eje se resuelve en un mapa independiente (`text.variants.ts`) y se emite una sola clase por eje, siempre como propiedad CSS arbitraria alimentada por un token:
 
-- Tamaño: `[font-size:var(--nerux-font-size-*)]`
-- Peso: `[font-weight:var(--nerux-font-weight-*)]`
-- Interlineado: `[line-height:var(--nerux-line-height-*)]`
-- Familia: `[font-family:var(--nerux-font-family-heading|body)]`
-- Color: `[color:var(--nerux-color-*)]`
+- Tamaño: `font-size: var(--nerux-font-size-<token>)`
+- Peso: `font-weight: var(--nerux-font-weight-<token>)`
+- Interlineado: `line-height: var(--nerux-line-height-<token>)`
+- Familia: `font-family: var(--nerux-font-family-heading)` o `var(--nerux-font-family-body)`
+- Color: `color: var(--nerux-color-<token>)`
 
 Escala de variantes:
 
@@ -115,17 +115,17 @@ Colores:
 | --- | --- |
 | `default` | `--nerux-color-text-default` |
 | `secondary` | `--nerux-color-text-secondary` |
-| `muted` | `--nerux-color-text-disabled` |
+| `muted` | `--nerux-color-text-muted` |
 | `success` | `--nerux-color-success-text` |
 | `warning` | `--nerux-color-warning-text` |
 | `danger` | `--nerux-color-danger-text` |
-| `brand` | `--nerux-brand-base` |
+| `brand` | `--nerux-color-brand-text` |
 | `inverse` | `--nerux-color-text-inverse` |
 
 Decisiones y compromisos:
 
-- `muted` reutiliza `text-disabled` porque es el único token de texto atenuado existente. Es un uso presentacional: no comunica estado deshabilitado ni debe usarse en controles deshabilitados.
-- `brand` usa `--nerux-brand-base` (theme/brand-aware) porque no existe `--nerux-color-brand-text`. El contraste en dark y en la brand `custom` se verifica en Storybook; si no cumple AA, se resuelve con un token nuevo en un cambio posterior.
+- La verificación de contraste en Storybook confirmó que `text-disabled` (2.69:1 en light) y `brand-base` (4.24:1 en dark sobre `surface-default`) no cumplen AA para texto normal. Por eso el cambio agrega dos tokens semánticos al pipeline: `--nerux-color-text-muted` (light: mezcla oklch de neutral-600/700; dark: neutral-500) y `--nerux-color-brand-text` (light: `brand-base`; dark: mezcla de `brand-base` al 75% con blanco). Ambos superan 4.5:1 sobre `surface-default` y `surface-secondary`.
+- `muted` y `brand` quedan desacoplados de `text-disabled` y `brand-base` directos, de modo que el texto atenuado no comunica estado deshabilitado y la marca conserva contraste en dark.
 - `display` y `h1` comparten 24px porque el pipeline no tiene un tamaño mayor. Se diferencian por peso (`bold` vs `semibold`), familia e interlineado; la limitación queda como open question.
 - No se usan clases como `text-lg`, `font-semibold`, `leading-tight` ni `text-neutral-900`: todas las valores salen de `var(--nerux-*)`.
 
@@ -155,7 +155,8 @@ Se sigue el patrón de `input.test.tsx`: `// @vitest-environment jsdom`, `@testi
 ## Risks / Trade-offs
 
 - **`display` y `h1` comparten tamaño (24px)** → Mitigación: peso, familia e interlineado distintos; se documenta en la story y se propone un token `font-size-display` como follow-up.
-- **`muted` y `brand` no tienen token de texto propio** → Mitigación: `muted` usa `text-disabled` con semántica presentacional explícita; `brand` usa `--nerux-brand-base` y se valida contraste AA en light/dark y brand custom antes de cerrar el cambio.
+- **`muted` y `brand` no tenían token de texto propio** → Mitigación aplicada: se agregaron `--nerux-color-text-muted` y `--nerux-color-brand-text` con pares de contraste AA verificados en light y dark; `brand-text` se deriva de `brand-base` para seguir la marca activa.
+- **El contraste de `brand-text` depende del color de cada marca** → Mitigación: en light usa `brand-base` (las marcas deben elegir una base con contraste sobre superficies claras) y en dark se mezcla con blanco; la brand `custom` se revisa en Storybook y cualquier marca nueva debe validar sus pares.
 - **`truncate` cambia el `display` a `block`** → Mitigación: se documenta en la story y en la API; para usos inline el consumidor puede omitir `truncate` o envolver en un contenedor con ancho definido.
 - **El alias `size` duplica la fuente de verdad** → Mitigación: `variant` tiene precedencia, ambos se tipan igual y el comportamiento se cubre con un test; se reevalúa retirarlo cuando no haya consumidores.
 - **Polimorfismo con componentes de terceros**: el `ref` y las props siguen el tipo del componente destino, pero el componente no puede garantizar que ese destino reenvíe el ref → Mitigación: documentar que `as` está pensado para tags HTML y componentes que respeten `ref`/props nativas.
@@ -178,7 +179,7 @@ Rollback: el cambio no persiste datos ni migra esquemas. Revertir el commit rest
 ## Open Questions
 
 - ¿Se agrega un token `--nerux-font-size-display` (o `3xl`) al pipeline para separar `display` de `h1`?
-- ¿Se agregan tokens `--nerux-color-text-muted` y `--nerux-color-brand-text` para eliminar los préstamos `text-disabled` y `brand-base`?
+- ¿Cada brand custom necesita su propio `--nerux-color-brand-text` o la derivación actual (base en light, mezcla con blanco en dark) es suficiente?
 - ¿Se mantiene el alias `size` a largo plazo o se retira cuando no haya consumidores?
 - ¿Se necesita `letter-spacing` tokenizado para `display`/`overline`, o el tracking por defecto es suficiente?
 - ¿Se soportará `asChild`/Slot en una futura iteración de las primitivas del DS?

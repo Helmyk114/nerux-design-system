@@ -28,7 +28,10 @@ const light: TokenMap = {
   "color-text-default": "var(--nerux-primitive-color-neutral-900)",
   "color-text-secondary": "var(--nerux-primitive-color-neutral-700)",
   "color-text-disabled": "var(--nerux-primitive-color-neutral-500)",
+  "color-text-muted":
+    "color-mix(in oklch, var(--nerux-primitive-color-neutral-600) 55%, var(--nerux-primitive-color-neutral-700))",
   "color-text-inverse": "var(--nerux-primitive-color-neutral-0)",
+  "color-brand-text": "var(--nerux-brand-base)",
   "color-neutral-bg-default": "var(--nerux-primitive-color-neutral-100)",
   "color-disabled-bg-default": "var(--nerux-primitive-color-neutral-200)",
   "color-secondary-bg-default": "var(--nerux-primitive-color-cyan-600)",
@@ -67,7 +70,10 @@ const dark: TokenMap = {
   "color-text-default": "var(--nerux-primitive-color-neutral-25)",
   "color-text-secondary": "var(--nerux-primitive-color-neutral-400)",
   "color-text-disabled": "var(--nerux-primitive-color-neutral-600)",
+  "color-text-muted": "var(--nerux-primitive-color-neutral-500)",
   "color-text-inverse": "var(--nerux-primitive-color-neutral-950)",
+  "color-brand-text":
+    "color-mix(in oklch, var(--nerux-brand-base) 75%, white)",
   "color-neutral-bg-default": "var(--nerux-primitive-color-neutral-800)",
   "color-disabled-bg-default": "#3a334a",
   "color-secondary-bg-default": "var(--nerux-primitive-color-cyan-400)",
@@ -116,6 +122,16 @@ const contrastPairs: ContrastPair[] = [
     background: "#ffffff",
   },
   {
+    label: "text-muted/surface-secondary (light, approx. oklch mix)",
+    foreground: "#6c667d",
+    background: "#f1eff7",
+  },
+  {
+    label: "brand-text/surface-secondary (light)",
+    foreground: "#7c3aed",
+    background: "#f1eff7",
+  },
+  {
     label: "success-text/success-bg (light)",
     foreground: "#14532d",
     background: "#f0fdf4",
@@ -153,6 +169,16 @@ const contrastPairs: ContrastPair[] = [
   {
     label: "text-secondary/surface (dark)",
     foreground: "#b4aec4",
+    background: "#181522",
+  },
+  {
+    label: "text-muted/surface (dark)",
+    foreground: "#9a94a8",
+    background: "#181522",
+  },
+  {
+    label: "brand-text/surface (dark, approx. oklch mix)",
+    foreground: "#a885f8",
     background: "#181522",
   },
   {

@@ -23,4 +23,11 @@ export { PaginationNerux } from "./Pagination"
 export { SelectNerux } from "./select/select";
 export { TableNerux } from "./table/table";
 export { TableContentNerux } from "./table/tableContent";
-export { TextNerux } from "./texto/texto";
+export { TextNerux } from "./text";
+export type {
+  TextAlign,
+  TextColor,
+  TextProps,
+  TextVariant,
+  TextWeight,
+} from "./text";

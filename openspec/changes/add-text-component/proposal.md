@@ -39,5 +39,7 @@ Ninguna. La tipografía se apoya en `token-pipeline`, `brand-theming` y `theme-r
 - `src/components/web/text/index.ts` y `src/components/web/index.ts` — export del componente y de sus tipos; se elimina el export de `./texto/texto`.
 - `src/index.ts` — exportación pública de `TextNerux` y sus tipos.
 - `src/components/web/texto/` — implementación anterior retirada una vez migrada la story y verificado el barrel.
+- `src/token/source/semantic.ts` — nuevos tokens `--nerux-color-text-muted` y `--nerux-color-brand-text` con pares de contraste AA en light/dark.
+- `src/token/generated/semantic.css` y `src/token/generated/types.ts` — tokens regenerados por el pipeline.
 - Consumidores actuales: solo las stories del DS; el cambio es breaking por la nueva API y la retirada del componente previo.
 - Dependencias: sin dependencias nuevas; `@testing-library/react` y `jsdom` ya están disponibles por cambios previos.

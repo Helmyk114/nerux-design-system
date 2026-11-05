@@ -117,11 +117,11 @@ El tipado SHALL ser genérico sobre el elemento elegido: las props nativas y el 
 | --- | --- |
 | `default` | `--nerux-color-text-default` |
 | `secondary` | `--nerux-color-text-secondary` |
-| `muted` | `--nerux-color-text-disabled` |
+| `muted` | `--nerux-color-text-muted` |
 | `success` | `--nerux-color-success-text` |
 | `warning` | `--nerux-color-warning-text` |
 | `danger` | `--nerux-color-danger-text` |
-| `brand` | `--nerux-brand-base` |
+| `brand` | `--nerux-color-brand-text` |
 | `inverse` | `--nerux-color-text-inverse` |
 
 El color SHALL resolverse en runtime mediante la variable CSS, de modo que los cambios de tema light/dark y de marca se reflejen sin re-renderizar el componente.
@@ -145,6 +145,25 @@ El color SHALL resolverse en runtime mediante la variable CSS, de modo que los c
 
 - **WHEN** se usa un valor de `color` fuera del conjunto permitido
 - **THEN** TypeScript rechaza la prop en compilación
+
+### Requirement: Tokens de texto accesibles
+
+El pipeline de tokens SHALL exponer `--nerux-color-text-muted` y `--nerux-color-brand-text` con valores para light y dark. Ambos tokens SHALL alcanzar una relación de contraste mínima de 4.5:1 sobre `--nerux-color-surface-default` y `--nerux-color-surface-secondary` en su tema.
+
+#### Scenario: Texto atenuado accesible
+
+- **WHEN** se renderiza texto con `color="muted"` en light o dark sobre una superficie del DS
+- **THEN** el contraste es de al menos 4.5:1
+
+#### Scenario: Texto de marca accesible
+
+- **WHEN** se renderiza texto con `color="brand"` en light o dark sobre una superficie del DS
+- **THEN** el contraste es de al menos 4.5:1
+
+#### Scenario: Tokens generados
+
+- **WHEN** se ejecuta `pnpm tokens:check`
+- **THEN** los tokens de texto atenuado y de marca existen en los CSS generados sin drift
 
 ### Requirement: Alineación y modificadores de texto
 

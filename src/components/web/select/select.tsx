@@ -1,6 +1,6 @@
 import { cn, FieldError, Label, ListBox, Select } from "@heroui/react";
 import { IconNerux } from "../icons/icon";
-import { TextNerux } from "../texto";
+import { TextNerux } from "../text";
 import type { SelectProps } from "./select.type";
 
 export function SelectNerux({
@@ -63,7 +63,9 @@ export function SelectNerux({
         <FieldError>
           <div className="flex items-center gap-[var(--spacing-1)]">
             <IconNerux name="IconAlertTriangle" size="sm" color="error" />
-            <TextNerux variant="error">{error}</TextNerux>
+            <TextNerux variant="caption" color="danger">
+              {error}
+            </TextNerux>
           </div>
         </FieldError>
       ) : null}

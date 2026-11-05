@@ -23,6 +23,7 @@
   --nerux-color-bg: var(--nerux-primitive-color-neutral-50);
   --nerux-color-border-default: var(--nerux-primitive-color-neutral-200);
   --nerux-color-border-hover: var(--nerux-primitive-color-neutral-300);
+  --nerux-color-brand-text: var(--nerux-brand-base);
   --nerux-color-danger: var(--nerux-primitive-color-red-600);
   --nerux-color-danger-bg: var(--nerux-primitive-color-red-50);
   --nerux-color-danger-text: var(--nerux-primitive-color-red-900);
@@ -48,6 +49,7 @@
   --nerux-color-text-default: var(--nerux-primitive-color-neutral-900);
   --nerux-color-text-disabled: var(--nerux-primitive-color-neutral-500);
   --nerux-color-text-inverse: var(--nerux-primitive-color-neutral-0);
+  --nerux-color-text-muted: color-mix(in oklch, var(--nerux-primitive-color-neutral-600) 55%, var(--nerux-primitive-color-neutral-700));
   --nerux-color-text-secondary: var(--nerux-primitive-color-neutral-700);
   --nerux-color-warning: var(--nerux-primitive-color-amber-700);
   --nerux-color-warning-bg: var(--nerux-primitive-color-amber-50);
@@ -67,6 +69,7 @@
   --nerux-color-bg: var(--nerux-primitive-color-neutral-950);
   --nerux-color-border-default: var(--nerux-primitive-color-neutral-800);
   --nerux-color-border-hover: #463d5c;
+  --nerux-color-brand-text: color-mix(in oklch, var(--nerux-brand-base) 75%, white);
   --nerux-color-danger: var(--nerux-primitive-color-red-400);
   --nerux-color-danger-bg: var(--nerux-primitive-color-red-950);
   --nerux-color-danger-text: var(--nerux-primitive-color-red-200);
@@ -92,6 +95,7 @@
   --nerux-color-text-default: var(--nerux-primitive-color-neutral-25);
   --nerux-color-text-disabled: var(--nerux-primitive-color-neutral-600);
   --nerux-color-text-inverse: var(--nerux-primitive-color-neutral-950);
+  --nerux-color-text-muted: var(--nerux-primitive-color-neutral-500);
   --nerux-color-text-secondary: var(--nerux-primitive-color-neutral-400);
   --nerux-color-warning: var(--nerux-primitive-color-amber-400);
   --nerux-color-warning-bg: var(--nerux-primitive-color-amber-950);
