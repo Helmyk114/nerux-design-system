@@ -10,6 +10,10 @@ const shared: TokenMap = {
   "color-border-focus": "var(--nerux-brand-focus-ring)",
   "color-focus": "var(--nerux-brand-focus-ring)",
   "color-link": "var(--nerux-brand-base)",
+  "color-success-foreground": "var(--nerux-color-text-inverse)",
+  "color-warning-foreground": "var(--nerux-color-text-inverse)",
+  "color-danger-foreground": "var(--nerux-color-text-inverse)",
+  "color-info-foreground": "var(--nerux-color-text-inverse)",
 };
 
 const light: TokenMap = {
@@ -24,7 +28,10 @@ const light: TokenMap = {
   "color-text-default": "var(--nerux-primitive-color-neutral-900)",
   "color-text-secondary": "var(--nerux-primitive-color-neutral-700)",
   "color-text-disabled": "var(--nerux-primitive-color-neutral-500)",
+  "color-text-muted":
+    "color-mix(in oklch, var(--nerux-primitive-color-neutral-600) 55%, var(--nerux-primitive-color-neutral-700))",
   "color-text-inverse": "var(--nerux-primitive-color-neutral-0)",
+  "color-brand-text": "var(--nerux-brand-base)",
   "color-neutral-bg-default": "var(--nerux-primitive-color-neutral-100)",
   "color-disabled-bg-default": "var(--nerux-primitive-color-neutral-200)",
   "color-secondary-bg-default": "var(--nerux-primitive-color-cyan-600)",
@@ -36,16 +43,16 @@ const light: TokenMap = {
   "color-secondary-text-hover": "var(--nerux-primitive-color-neutral-0)",
   "color-secondary-text-active": "var(--nerux-primitive-color-neutral-0)",
   "color-success": "var(--nerux-primitive-color-green-700)",
-  "color-success-bg": "var(--nerux-primitive-color-green-200)",
+  "color-success-bg": "var(--nerux-primitive-color-green-50)",
   "color-success-text": "var(--nerux-primitive-color-green-900)",
   "color-warning": "var(--nerux-primitive-color-amber-700)",
-  "color-warning-bg": "var(--nerux-primitive-color-amber-200)",
+  "color-warning-bg": "var(--nerux-primitive-color-amber-50)",
   "color-warning-text": "var(--nerux-primitive-color-amber-900)",
-  "color-danger": "var(--nerux-primitive-color-red-700)",
-  "color-danger-bg": "var(--nerux-primitive-color-red-200)",
+  "color-danger": "var(--nerux-primitive-color-red-600)",
+  "color-danger-bg": "var(--nerux-primitive-color-red-50)",
   "color-danger-text": "var(--nerux-primitive-color-red-900)",
   "color-info": "var(--nerux-primitive-color-blue-600)",
-  "color-info-bg": "var(--nerux-primitive-color-blue-200)",
+  "color-info-bg": "var(--nerux-primitive-color-blue-50)",
   "color-info-text": "var(--nerux-primitive-color-blue-900)",
   "backdrop-blur": "blur(8px)",
   "backdrop-brightness": "brightness(0.7)",
@@ -63,7 +70,10 @@ const dark: TokenMap = {
   "color-text-default": "var(--nerux-primitive-color-neutral-25)",
   "color-text-secondary": "var(--nerux-primitive-color-neutral-400)",
   "color-text-disabled": "var(--nerux-primitive-color-neutral-600)",
+  "color-text-muted": "var(--nerux-primitive-color-neutral-500)",
   "color-text-inverse": "var(--nerux-primitive-color-neutral-950)",
+  "color-brand-text":
+    "color-mix(in oklch, var(--nerux-brand-base) 75%, white)",
   "color-neutral-bg-default": "var(--nerux-primitive-color-neutral-800)",
   "color-disabled-bg-default": "#3a334a",
   "color-secondary-bg-default": "var(--nerux-primitive-color-cyan-400)",
@@ -112,24 +122,34 @@ const contrastPairs: ContrastPair[] = [
     background: "#ffffff",
   },
   {
+    label: "text-muted/surface-secondary (light, approx. oklch mix)",
+    foreground: "#6c667d",
+    background: "#f1eff7",
+  },
+  {
+    label: "brand-text/surface-secondary (light)",
+    foreground: "#7c3aed",
+    background: "#f1eff7",
+  },
+  {
     label: "success-text/success-bg (light)",
     foreground: "#14532d",
-    background: "#bbf7d0",
+    background: "#f0fdf4",
   },
   {
     label: "warning-text/warning-bg (light)",
     foreground: "#78350f",
-    background: "#fde68a",
+    background: "#fffbeb",
   },
   {
     label: "danger-text/danger-bg (light)",
     foreground: "#7f1d1d",
-    background: "#fecaca",
+    background: "#fef2f2",
   },
   {
     label: "info-text/info-bg (light)",
     foreground: "#1e3a8a",
-    background: "#bfdbfe",
+    background: "#eff6ff",
   },
   {
     label: "text-default/bg (dark)",
@@ -152,6 +172,16 @@ const contrastPairs: ContrastPair[] = [
     background: "#181522",
   },
   {
+    label: "text-muted/surface (dark)",
+    foreground: "#9a94a8",
+    background: "#181522",
+  },
+  {
+    label: "brand-text/surface (dark, approx. oklch mix)",
+    foreground: "#a885f8",
+    background: "#181522",
+  },
+  {
     label: "success-text/success-bg (dark)",
     foreground: "#bbf7d0",
     background: "#052e16",
@@ -170,6 +200,46 @@ const contrastPairs: ContrastPair[] = [
     label: "info-text/info-bg (dark)",
     foreground: "#bfdbfe",
     background: "#172554",
+  },
+  {
+    label: "success-foreground/success (light)",
+    foreground: "#ffffff",
+    background: "#15803d",
+  },
+  {
+    label: "warning-foreground/warning (light)",
+    foreground: "#ffffff",
+    background: "#b45309",
+  },
+  {
+    label: "danger-foreground/danger (light)",
+    foreground: "#ffffff",
+    background: "#dc2626",
+  },
+  {
+    label: "info-foreground/info (light)",
+    foreground: "#ffffff",
+    background: "#2563eb",
+  },
+  {
+    label: "success-foreground/success (dark)",
+    foreground: "#0f0d15",
+    background: "#4ade80",
+  },
+  {
+    label: "warning-foreground/warning (dark)",
+    foreground: "#0f0d15",
+    background: "#fbbf24",
+  },
+  {
+    label: "danger-foreground/danger (dark)",
+    foreground: "#0f0d15",
+    background: "#f87171",
+  },
+  {
+    label: "info-foreground/info (dark)",
+    foreground: "#0f0d15",
+    background: "#60a5fa",
   },
 ];
 

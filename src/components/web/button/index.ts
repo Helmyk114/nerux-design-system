@@ -1,4 +1,4 @@
-export * from "./button.stories";
 export * from "./button";
-export * from "./button.types";
-export * from "./button.varaint";
+export type { ButtonProps, ButtonSize, ButtonVariant } from "./button.types";
+export { buttonColorVariants } from "./button.variants";
+export * from "./button.stories";

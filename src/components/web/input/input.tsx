@@ -1,95 +1,234 @@
+import { useId, useState } from "react";
+import type { JSX } from "react";
 import {
-  TextField,
-  Label,
+  Button,
+  Description,
   FieldError,
   InputGroup,
-  Button,
-  cn,
+  Label,
+  TextField,
 } from "@heroui/react";
-import type { InputProps } from "./input.type";
-import { IconNerux } from "../icons/icon";
-import { TextNerux } from "../texto";
-import { useState } from "react";
+import clsx from "clsx";
+import { IconEye, IconEyeClosed } from "@tabler/icons-react";
+import type { InputProps } from "./input.types";
+import {
+  inputFieldClasses,
+  inputGroupClasses,
+  inputSizeClasses,
+  inputVariantClasses,
+} from "./input.variants";
 
-export function InputNerux({
-  type = "text",
-  error,
-  startIcon,
-  endIcon,
-  ...props
-}: InputProps) {
+const LEGACY_INPUT_PROPS = ["error", "startIcon", "endIcon", "disabled"] as const;
+
+function withoutLegacyProps(props: InputProps): InputProps {
+  const sanitized = { ...props } as Record<string, unknown>;
+
+  for (const key of LEGACY_INPUT_PROPS) {
+    delete sanitized[key];
+  }
+
+  return sanitized as InputProps;
+}
+
+function hasContent(node: unknown): boolean {
+  return node !== null && node !== undefined && node !== false && node !== "";
+}
+
+export function InputNerux(inputProps: InputProps): JSX.Element {
+  const props = withoutLegacyProps(inputProps);
+
+  const {
+    variant = "primary",
+    size = "md",
+    label,
+    description,
+    errorMessage,
+    startContent,
+    endContent,
+    className,
+    ref,
+    id,
+    isInvalid: isInvalidProp,
+    isDisabled,
+    isReadOnly,
+    isRequired,
+    fullWidth,
+    type = "text",
+    value,
+    defaultValue,
+    onChange,
+    placeholder,
+    name,
+    autoComplete,
+    inputMode,
+    pattern,
+    maxLength,
+    minLength,
+    form,
+    onKeyDown,
+    onKeyUp,
+    onFocus,
+    onBlur,
+    onInput,
+    onBeforeInput,
+    onCopy,
+    onCut,
+    onPaste,
+    onCompositionStart,
+    onCompositionEnd,
+    onCompositionUpdate,
+    onSelect,
+    "aria-describedby": ariaDescribedBy,
+    ...rest
+  } = props;
+
+  const generatedId = useId();
+  const fieldId = id ?? generatedId;
+
+  const hasLabel = hasContent(label);
+  const hasDescription = hasContent(description);
+  const hasError = Boolean(errorMessage);
+  const hasPrefix = hasContent(startContent);
+  const hasSuffix = hasContent(endContent) || type === "password";
+
+  const isInvalid = isInvalidProp ?? (hasError ? true : undefined);
+
+  const descriptionId = `${fieldId}-description`;
+  const errorId = `${fieldId}-error`;
+
+  const describedBy =
+    [
+      ariaDescribedBy,
+      hasDescription ? descriptionId : null,
+      hasError ? errorId : null,
+    ]
+      .filter(Boolean)
+      .join(" ") || undefined;
+
   const [isVisible, setIsVisible] = useState(false);
-  const hasError = Boolean(error);
+  const [lastType, setLastType] = useState(type);
 
-  const inputType =
-    type === "password" ? (isVisible ? "text" : "password") : type;
+  // Reset visibility when `type` changes away from password without an effect.
+  if (lastType !== type) {
+    setLastType(type);
+    if (isVisible) {
+      setIsVisible(false);
+    }
+  }
+
+  const isPassword = type === "password";
+  const resolvedType = isPassword && isVisible ? "text" : type;
+  const iconPixels = size === "lg" ? 24 : 16;
 
   return (
-      <TextField
-        type={inputType}
-        isInvalid={hasError}
-        name={props.name}
-        isRequired={props.required}
-        isDisabled={props.disabled}
-      >
-        <Label>{props.name}</Label>
-        <InputGroup
-          className={cn(
-            "border",
-            "[border-width:var(--border-width-thin)]",
-            "[border-radius:var(--border-radius-lg)]",
-            "border-solid",
-            "border-(--color-border-default)",
-            "focus-within:border-(--color-primary-bg-default)",
-            "hover:border-(--color-primary-bg-default)",
-            hasError
-              ? "border-(--color-error) hover:border-(--color-error)"
-              : "",
-          )}
+    <TextField
+      {...rest}
+      value={value}
+      defaultValue={defaultValue}
+      isInvalid={isInvalid}
+      isDisabled={isDisabled}
+      isReadOnly={isReadOnly}
+      isRequired={isRequired}
+      fullWidth={fullWidth}
+      className={clsx(
+        inputVariantClasses[variant],
+        inputSizeClasses[size],
+        className,
+      )}
+    >
+      {hasLabel ? (
+        <Label
+          htmlFor={fieldId}
+          isRequired={isRequired}
+          isInvalid={isInvalid}
         >
-          <InputGroup.Prefix>
-            {startIcon && <IconNerux name={startIcon} size="sm" />}
-          </InputGroup.Prefix>
-          <InputGroup.Input 
-            placeholder={props.placeholder}
-            value={props.value}
-            onChange={props.onChange}
-            className={cn(
-              "text-(--color-primary-text-default)",
-              hasError
-                ? "text-(--color-error)"
-                : "text-(--color-primary-text-default)",
-            )}
-          />
+          {label}
+        </Label>
+      ) : null}
+
+      <InputGroup
+        className={inputGroupClasses}
+        isInvalid={isInvalid}
+        isDisabled={isDisabled}
+        isReadOnly={isReadOnly}
+      >
+        {hasPrefix ? (
+          <InputGroup.Prefix>{startContent}</InputGroup.Prefix>
+        ) : null}
+
+        <InputGroup.Input
+          ref={ref}
+          id={fieldId}
+          className={inputFieldClasses}
+          type={resolvedType}
+          value={value}
+          onChange={onChange}
+          placeholder={placeholder}
+          name={name}
+          autoComplete={autoComplete}
+          inputMode={inputMode}
+          pattern={pattern}
+          maxLength={maxLength}
+          minLength={minLength}
+          form={form}
+          aria-invalid={isInvalid || undefined}
+          aria-describedby={describedBy}
+          onKeyDown={onKeyDown}
+          onKeyUp={onKeyUp}
+          onFocus={onFocus}
+          onBlur={onBlur}
+          onInput={onInput}
+          onBeforeInput={onBeforeInput}
+          onCopy={onCopy}
+          onCut={onCut}
+          onPaste={onPaste}
+          onCompositionStart={onCompositionStart}
+          onCompositionEnd={onCompositionEnd}
+          onCompositionUpdate={onCompositionUpdate}
+          onSelect={onSelect}
+        />
+
+        {hasSuffix ? (
           <InputGroup.Suffix>
-            {type === "password" ? (
+            {endContent}
+            {isPassword ? (
               <Button
+                type="button"
                 isIconOnly
                 variant="ghost"
-                size="md"
-                aria-label={isVisible ? "Hide password" : "Show password"}
-                onPress={() => setIsVisible(!isVisible)}
+                size={size}
+                isDisabled={isDisabled}
+                aria-label={
+                  isVisible ? "Ocultar contraseña" : "Mostrar contraseña"
+                }
+                aria-pressed={isVisible}
+                aria-controls={fieldId}
+                onPress={() => setIsVisible((visible) => !visible)}
               >
                 {isVisible ? (
-                  <IconNerux name="IconEyeClosed" />
+                  <IconEyeClosed
+                    size={iconPixels}
+                    stroke={1.5}
+                    className="text-(--nerux-color-text-secondary)"
+                  />
                 ) : (
-                  <IconNerux name="IconEye" />
+                  <IconEye
+                    size={iconPixels}
+                    stroke={1.5}
+                    className="text-(--nerux-color-text-secondary)"
+                  />
                 )}
               </Button>
-            ) : (
-              endIcon && <IconNerux name={endIcon} />
-            )}
+            ) : null}
           </InputGroup.Suffix>
-        </InputGroup>
-
-        {hasError ? (
-          <FieldError>
-            <div className="flex items-center gap-[var(--spacing-1)]">
-              <IconNerux name="IconAlertTriangle" size="sm" color="error" />
-              <TextNerux variant="error">{error}</TextNerux>
-            </div>
-          </FieldError>
         ) : null}
-      </TextField>
+      </InputGroup>
+
+      {hasDescription ? (
+        <Description id={descriptionId}>{description}</Description>
+      ) : null}
+
+      {hasError ? <FieldError id={errorId}>{errorMessage}</FieldError> : null}
+    </TextField>
   );
 }
